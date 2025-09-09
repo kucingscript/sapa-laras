@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@source "../views";
+
+@import "../../node_modules/preline/variants.css";
+@source "../../node_modules/preline/dist/*.js";
+
+@layer base {
+    body {
+        font-family: "Poppins", sans-serif !important;
+    }
+
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant hover (&:hover);
