@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\PesantrenOperationalPermit;
 use Illuminate\Http\Request;
 
 class PesantrenOperationalPermitController extends Controller
@@ -12,7 +13,8 @@ class PesantrenOperationalPermitController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.pesantren-operational-permit.index');
+        $data = PesantrenOperationalPermit::paginate(1);
+        return view('pages.backsite.pesantren-operational-permit.index', compact('data'));
     }
 
     /**

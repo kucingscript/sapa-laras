@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\LpqRegistration;
 use Illuminate\Http\Request;
 
 class LpqRegistrationController extends Controller
@@ -12,7 +13,8 @@ class LpqRegistrationController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.lpq-registration.index');
+        $data = LpqRegistration::paginate(1);
+        return view('pages.backsite.lpq-registration.index', compact('data'));
     }
 
     /**

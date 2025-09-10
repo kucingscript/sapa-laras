@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\MadrasahOperationalPermit;
 use Illuminate\Http\Request;
 
 class MadrasahOperationalPermitController extends Controller
@@ -12,7 +13,8 @@ class MadrasahOperationalPermitController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.madrasah-operational-permit.index');
+        $data = MadrasahOperationalPermit::paginate(1);
+        return view('pages.backsite.madrasah-operational-permit.index', \compact('data'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\HajjDelegation;
 use Illuminate\Http\Request;
 
 class HajjDelegationController extends Controller
@@ -12,7 +13,8 @@ class HajjDelegationController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.hajj-delegation.index');
+        $data = HajjDelegation::paginate(1);
+        return view('pages.backsite.hajj-delegation.index', \compact('data'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\HajjRegularRegistration;
 use Illuminate\Http\Request;
 
 class HajjRegularRegistrationController extends Controller
@@ -12,7 +13,8 @@ class HajjRegularRegistrationController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.hajj-regular-registration.index');
+        $data = HajjRegularRegistration::paginate(1);
+        return view('pages.backsite.hajj-regular-registration.index', compact('data'));
     }
 
     /**

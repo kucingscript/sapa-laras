@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +13,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.dashboard.index');
+        $userName = auth()->user()->name;
+        $todayDate = Carbon::now()->locale('id')->isoFormat('dddd, D MMMM YYYY');
+
+        return view('pages.backsite.dashboard.index', compact('userName', 'todayDate'));
     }
 
     /**

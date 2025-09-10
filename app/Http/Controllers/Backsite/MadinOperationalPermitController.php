@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\MadinOperationalPermit;
 use Illuminate\Http\Request;
 
 class MadinOperationalPermitController extends Controller
@@ -12,7 +13,8 @@ class MadinOperationalPermitController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.madin-operational-permit.index');
+        $data = MadinOperationalPermit::paginate(1);
+        return view('pages.backsite.madin-operational-permit.index', compact('data'));
     }
 
     /**

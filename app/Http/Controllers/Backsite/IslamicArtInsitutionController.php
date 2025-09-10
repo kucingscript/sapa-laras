@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\IslamicArtInsitution;
 use Illuminate\Http\Request;
 
 class IslamicArtInsitutionController extends Controller
@@ -12,7 +13,8 @@ class IslamicArtInsitutionController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.islamic-art-insitution.index');
+        $data = IslamicArtInsitution::paginate(1);
+        return view('pages.backsite.islamic-art-insitution.index', \compact('data'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\MajlisTaklimCertificate;
 use Illuminate\Http\Request;
 
 class MajlisTaklimCertificateController extends Controller
@@ -12,7 +13,8 @@ class MajlisTaklimCertificateController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.majlis-taklim-certificate.index');
+        $data = MajlisTaklimCertificate::paginate(1);
+        return view('pages.backsite.majlis-taklim-certificate.index', compact('data'));
     }
 
     /**

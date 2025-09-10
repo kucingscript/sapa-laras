@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\SantriStudyAbroad;
 use Illuminate\Http\Request;
 
 class SantriStudyAbroadController extends Controller
@@ -12,7 +13,8 @@ class SantriStudyAbroadController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.santri-study-abroad.index');
+        $data = SantriStudyAbroad::paginate(1);
+        return view('pages.backsite.santri-study-abroad.index', compact('data'));
     }
 
     /**

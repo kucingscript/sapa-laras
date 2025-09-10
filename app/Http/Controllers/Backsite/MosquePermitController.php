@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\MosquePermit;
 use Illuminate\Http\Request;
 
 class MosquePermitController extends Controller
@@ -12,7 +13,8 @@ class MosquePermitController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.mosque-permit.index');
+        $data = MosquePermit::paginate(1);
+        return view('pages.backsite.mosque-permit.index', \compact('data'));
     }
 
     /**

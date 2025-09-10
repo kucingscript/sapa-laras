@@ -3,7 +3,7 @@
     <div class="relative flex flex-col h-full max-h-full">
         <div class="px-6 pt-4 flex items-center">
             <a class="flex items-center gap-x-2" href="#" aria-label="Logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-12 h-auto">
+                <img src="{{ asset('images/logo.webp') }}" alt="Logo" class="w-12 h-auto">
                 <span class="text-2xl font-bold mt-1 text-red-800 dark:text-white">
                     BerAKHLAK <sup class="text-xl -ml-1">></sup>
                 </span>

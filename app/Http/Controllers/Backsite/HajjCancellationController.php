@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\HajjCancellation;
 use Illuminate\Http\Request;
 
 class HajjCancellationController extends Controller
@@ -12,7 +13,8 @@ class HajjCancellationController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.hajj-cancellation.index');
+        $data = HajjCancellation::paginate(1);
+        return view('pages.backsite.hajj-cancellation.index', compact('data'));
     }
 
     /**

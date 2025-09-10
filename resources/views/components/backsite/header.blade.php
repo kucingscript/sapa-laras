@@ -3,21 +3,42 @@
      class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-48 w-full bg-white border-b border-gray-200 text-sm py-2.5 lg:ps-65 dark:bg-neutral-800 dark:border-neutral-700">
      <nav class="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
          <div class="me-5 lg:me-0 xl:hidden flex items-center w-full">
-             <!-- Logo -->
              <a class="flex items-center gap-x-1" href="#" aria-label="Logo">
-                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-10 h-auto">
+                 <img src="{{ asset('images/logo.webp') }}" alt="Logo" class="w-10 h-auto">
                  <span class="text-lg font-bold mt-1 text-red-800 dark:text-white whitespace-nowrap">
                      BerAKHLAK <sup class="text-base -ml-1">></sup>
                  </span>
              </a>
-             <!-- End Logo -->
          </div>
 
          <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
 
-             <div class="hidden md:block"></div>
+             <div class="hidden sm:block">
+                 <ol class="flex items-center whitespace-nowrap">
+                     @if (request()->routeIs('backsite.dashboard.index'))
+                         <li class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400"
+                             aria-current="page">
+                             Dashboard
+                         </li>
+                     @else
+                         <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
+                             <a class="hover:underline" href="{{ route('backsite.dashboard.index') }}">Dashboard</a>
+                             <svg class="shrink-0 mx-3 overflow-visible size-2.5 text-gray-400 dark:text-neutral-500"
+                                 width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
+                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                             </svg>
+                         </li>
+                         <li class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400"
+                             aria-current="page">
+                             @yield('title')
+                         </li>
+                     @endif
+                 </ol>
+             </div>
 
-             <div class="flex flex-row items-center justify-end gap-1">
+             <div class="flex flex-row items-center justify-end gap-2">
                  <button type="button"
                      class="hs-dark-mode hs-dark-mode-active:hidden flex items-center gap-x-2 py-2 px-3 bg-white/10 rounded-full text-sm text-dark hover:bg-white/20 focus:outline-hidden focus:bg-white/20"
                      data-hs-theme-click-value="dark">
