@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\WaqfPledgeDeed;
 use Illuminate\Http\Request;
 
 class WaqfPledgeDeedController extends Controller
@@ -12,7 +13,8 @@ class WaqfPledgeDeedController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.waqf-pledge-deed.index');
+        $data = WaqfPledgeDeed::paginate(1);
+        return view('pages.backsite.waqf-pledge-deed.index', \compact('data'));
     }
 
     /**
