@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'Sertifikat Masjid / Musholla')
+@section('title', 'Izin Operasional Madrasah')
 
 @section('content')
     <div class="bg-slate-50">
@@ -11,8 +11,9 @@
                         <div class="flex justify-center items-center mb-4">
                             <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag" class="h-20 w-auto">
                         </div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Permohonan Sertifikat Masjid /
-                            Musholla</h1>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Izin Operasional Madrasah
+                            (RA,MI,MTs,MA)
+                        </h1>
                         <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda
                             lalui</p>
                     </div>
@@ -26,7 +27,7 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-gray-700">Waktu Layanan</h3>
-                                <p class="text-gray-600">1 Hari Proses</p>
+                                <p class="text-gray-600">14 Hari Proses</p>
                             </div>
                         </div>
                         <div class="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
@@ -50,7 +51,7 @@
                             Dokumen Persyaratan
                         </h2>
                         <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
-                            @forelse ($mosquePermit->data as $d)
+                            @forelse ($madrasah->data as $d)
                                 <li class="pl-2 leading-relaxed">{{ $d }}</li>
                             @empty
                                 <p class="text-center text-gray-500">Tidak ada data persyaratan yang tersedia.</p>
@@ -72,8 +73,8 @@
                                         1</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Pengajuan Permohonan</h3>
-                                <p class="text-gray-600 mt-1">Pemohon menyerahkan berkas permohonan beserta kelengkapan
-                                    persyaratan</p>
+                                <p class="text-gray-600 mt-1">Pemohon datang membawa berkas permohonan dan dokumen yang
+                                    disyaratkan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -93,8 +94,11 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         3</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Pengajuan Berkas</h3>
-                                <p class="text-gray-600 mt-1">Petugas menyerahkan berkas lengkap ke petugas Seksi Bimas</p>
+                                <h3 class="font-semibold text-gray-800">Mengunggah Dokumen</h3>
+                                <p class="text-gray-600 mt-1">Pemohon mengunggah dokumen yang disyaratkan pada aplikasi
+                                    <a class="text-blue-600" href="https://ijopmadrasah.kemenag.go.id/" target="_blank"
+                                        noopenner noreferrer>https://ijopmadrasah.kemenag.go.id/kabko</a>
+                                </p>
                             </div>
 
                             <div class="relative pl-12">
@@ -103,9 +107,11 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         4</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Verifikasi Lapangan</h3>
-                                <p class="text-gray-600 mt-1">Tim verifikator Seksi Bimas melakukan verifikasi langsung
-                                    ke lapangan</p>
+                                <h3 class="font-semibold text-gray-800">Verifikasi Dokumen</h3>
+                                <p class="text-gray-600 mt-1">Tim verifikator Seksi melakukan verifikasi dokumen melalui
+                                    <a class="text-blue-600" href="https://ijopmadrasah.kemenag.go.id/" target="_blank"
+                                        noopenner noreferrer>https://ijopmadrasah.kemenag.go.id/kabko</a>
+                                </p>
                             </div>
 
                             <div class="relative pl-12">
@@ -114,8 +120,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         5</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Entri Data</h3>
-                                <p class="text-gray-600 mt-1">Petugas seksi melakukan entri data pada aplikasi SIMAS</p>
+                                <h3 class="font-semibold text-gray-800">Verifikasi Lapangan</h3>
+                                <p class="text-gray-600 mt-1">Hasil verifikasi dokumen dinyatakan memenuhi, tim verifikator
+                                    melakukan verifikasi lapangan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -124,9 +131,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         6</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Penerbitan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Jika hasil verifikasi dinyatakan layak, ID/sertifikat
-                                    masjid/musholla diterbitkan</p>
+                                <h3 class="font-semibold text-gray-800">Surat Rekomendasi</h3>
+                                <p class="text-gray-600 mt-1">Hasil verifikasi lapangan dinyatakan memenuhi maka surat
+                                    rekomendasi diterbitkan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -136,7 +143,9 @@
                                         7</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Disposisi</h3>
-                                <p class="text-gray-600 mt-1">ID/sertifikat masjid/mushola didisposisi oleh kepala seksi</p>
+                                <p class="text-gray-600 mt-1">Surat rekomendasi didisposisi oleh Kepala Kantor Kementerian
+                                    Agama Kabupaten Pacitan
+                                </p>
                             </div>
 
                             <div class="relative pl-12">
@@ -146,7 +155,7 @@
                                         8</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Penyerahan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Sertifikat masjid/mushola diserahkan kepada pemohon</p>
+                                <p class="text-gray-600 mt-1">Sertifikat rekomendasi diserahkan kepada pemohon</p>
                             </div>
                         </div>
                     </div>

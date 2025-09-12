@@ -76,6 +76,15 @@ class DataSeeder extends Seeder
                 "Asli dan FC buku tabungan yang masih aktif atas nama Jamaah Haji yang bersangkutan",
                 "FC KTP dan aslinya",
                 "Mencantumkan Nomor HP aktif"
+            ],
+            'data2' => [
+                "Suket kematian dari Desa/Lurah",
+                "Suket ahli waris bermaterai Rp. 10.000",
+                "Suket Kuasa Waris yang ditunjuk ahli waris",
+                "FC KTP ahli waris/kuasa waris Jamaah Haji yang mengajukan pembatalan pendaftaran dengan memperlihatkan aslinya",
+                "Surat pernyataan tanggungjawab mutlak dari ahli waris/kuasa waris jamaah haji bermaterai Rp. 10.000",
+                "Ahli waris/kuasa waris wajib mencantumkan No. Hp aktif",
+                "Surat pendaftaran pergi haji (SPH)"
             ]
         ]);
 

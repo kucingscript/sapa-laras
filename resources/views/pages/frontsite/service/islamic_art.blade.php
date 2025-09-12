@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'Sertifikat Masjid / Musholla')
+@section('title', 'Lembaga Kesenian Islam')
 
 @section('content')
     <div class="bg-slate-50">
@@ -11,8 +11,8 @@
                         <div class="flex justify-center items-center mb-4">
                             <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag" class="h-20 w-auto">
                         </div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Permohonan Sertifikat Masjid /
-                            Musholla</h1>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Sertifikat Lembaga Kesenian Islam
+                        </h1>
                         <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda
                             lalui</p>
                     </div>
@@ -50,7 +50,7 @@
                             Dokumen Persyaratan
                         </h2>
                         <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
-                            @forelse ($mosquePermit->data as $d)
+                            @forelse ($islamicArt->data as $d)
                                 <li class="pl-2 leading-relaxed">{{ $d }}</li>
                             @empty
                                 <p class="text-center text-gray-500">Tidak ada data persyaratan yang tersedia.</p>
@@ -114,8 +114,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         5</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Entri Data</h3>
-                                <p class="text-gray-600 mt-1">Petugas seksi melakukan entri data pada aplikasi SIMAS</p>
+                                <h3 class="font-semibold text-gray-800">Penerbitan Sertifikat</h3>
+                                <p class="text-gray-600 mt-1">Jika hasil verifikasi dinyatakan layak, sertifikat lembaga
+                                    kesenian islam diterbitkan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -124,9 +125,10 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         6</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Penerbitan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Jika hasil verifikasi dinyatakan layak, ID/sertifikat
-                                    masjid/musholla diterbitkan</p>
+                                <h3 class="font-semibold text-gray-800">Disposisi</h3>
+                                <p class="text-gray-600 mt-1">Sertifikat lembaga kesenian islam didisposisi oleh
+                                    kepala seksi
+                                </p>
                             </div>
 
                             <div class="relative pl-12">
@@ -135,18 +137,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         7</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Disposisi</h3>
-                                <p class="text-gray-600 mt-1">ID/sertifikat masjid/mushola didisposisi oleh kepala seksi</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        8</div>
-                                </div>
                                 <h3 class="font-semibold text-gray-800">Penyerahan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Sertifikat masjid/mushola diserahkan kepada pemohon</p>
+                                <p class="text-gray-600 mt-1">Sertifikat lembaga kesenian islam diserahkan kepada pemohon
+                                </p>
                             </div>
                         </div>
                     </div>

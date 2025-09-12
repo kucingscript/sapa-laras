@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'Sertifikat Masjid / Musholla')
+@section('title', 'Santri ke Luar Negeri')
 
 @section('content')
     <div class="bg-slate-50">
@@ -11,8 +11,9 @@
                         <div class="flex justify-center items-center mb-4">
                             <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag" class="h-20 w-auto">
                         </div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Permohonan Sertifikat Masjid /
-                            Musholla</h1>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Rekomendasi Santri Belajar ke Luar
+                            Negeri
+                        </h1>
                         <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda
                             lalui</p>
                     </div>
@@ -50,7 +51,7 @@
                             Dokumen Persyaratan
                         </h2>
                         <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
-                            @forelse ($mosquePermit->data as $d)
+                            @forelse ($studyAbroad->data as $d)
                                 <li class="pl-2 leading-relaxed">{{ $d }}</li>
                             @empty
                                 <p class="text-center text-gray-500">Tidak ada data persyaratan yang tersedia.</p>
@@ -72,8 +73,7 @@
                                         1</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Pengajuan Permohonan</h3>
-                                <p class="text-gray-600 mt-1">Pemohon menyerahkan berkas permohonan beserta kelengkapan
-                                    persyaratan</p>
+                                <p class="text-gray-600 mt-1">Pemohon layanan datang membawa berkas persyaratan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -83,8 +83,8 @@
                                         2</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Verifikasi Berkas</h3>
-                                <p class="text-gray-600 mt-1">Petugas menerima dokumen dan melakukan pengecekan kelengkapan
-                                    berkas</p>
+                                <p class="text-gray-600 mt-1">Petugas layanan menerima berkas dan melakukan pengecekan
+                                    kelengkapan berkas</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -94,7 +94,7 @@
                                         3</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Pengajuan Berkas</h3>
-                                <p class="text-gray-600 mt-1">Petugas menyerahkan berkas lengkap ke petugas Seksi Bimas</p>
+                                <p class="text-gray-600 mt-1">Petugas menyerahkan berkas lengkap ke petugas seksi</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -103,9 +103,8 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         4</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Verifikasi Lapangan</h3>
-                                <p class="text-gray-600 mt-1">Tim verifikator Seksi Bimas melakukan verifikasi langsung
-                                    ke lapangan</p>
+                                <h3 class="font-semibold text-gray-800">Disposisi</h3>
+                                <p class="text-gray-600 mt-1">Surat permohonan dilakukan disposisi oleh kepala seksi</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -115,7 +114,7 @@
                                         5</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Entri Data</h3>
-                                <p class="text-gray-600 mt-1">Petugas seksi melakukan entri data pada aplikasi SIMAS</p>
+                                <p class="text-gray-600 mt-1">Petugas melakukan entri data pemohon layanan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -124,9 +123,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         6</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Penerbitan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Jika hasil verifikasi dinyatakan layak, ID/sertifikat
-                                    masjid/musholla diterbitkan</p>
+                                <h3 class="font-semibold text-gray-800">Pencetakan Surat</h3>
+                                <p class="text-gray-600 mt-1">Petugas mencetak surat rekomendasi
+                                </p>
                             </div>
 
                             <div class="relative pl-12">
@@ -135,18 +134,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         7</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Disposisi</h3>
-                                <p class="text-gray-600 mt-1">ID/sertifikat masjid/mushola didisposisi oleh kepala seksi</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        8</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Penyerahan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Sertifikat masjid/mushola diserahkan kepada pemohon</p>
+                                <h3 class="font-semibold text-gray-800">Penyerahan Surat</h3>
+                                <p class="text-gray-600 mt-1">Surat rekomendasi diberikan kepada pemohon layanan
+                                </p>
                             </div>
                         </div>
                     </div>

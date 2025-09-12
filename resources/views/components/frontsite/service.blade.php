@@ -31,7 +31,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.majlis_taklim', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -56,7 +56,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.islamic_art', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -87,7 +87,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.hajj_regular', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -114,7 +114,7 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-6 my-6">
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.hajj_cancellation', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -140,7 +140,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.hajj_delegation', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -168,7 +168,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.study_abroad', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -195,7 +195,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.ponpes', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -228,7 +228,7 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-6">
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href="{{ route('service.madin', 1) }}">
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -257,7 +257,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.lpq', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -283,7 +283,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.madrasah', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -312,7 +312,7 @@
             </div>
         </a>
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.waqf', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

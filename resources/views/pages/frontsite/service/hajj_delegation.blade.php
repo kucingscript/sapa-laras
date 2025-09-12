@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'Sertifikat Masjid / Musholla')
+@section('title', 'Pelimpahan Haji Reguler')
 
 @section('content')
     <div class="bg-slate-50">
@@ -11,13 +11,13 @@
                         <div class="flex justify-center items-center mb-4">
                             <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag" class="h-20 w-auto">
                         </div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Permohonan Sertifikat Masjid /
-                            Musholla</h1>
-                        <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda
-                            lalui</p>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Pelimpahan Porsi Jamaah Haji Reguler
+                        </h1>
+                        <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda lalui
+                        </p>
                     </div>
 
-                    <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="mb-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center">
                             <svg class="w-8 h-8 text-blue-600 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -45,17 +45,55 @@
                         </div>
                     </div>
 
-                    <div class="mb-10">
-                        <h2 class="text-xl font-semibold text-gray-700 mb-4 border-b-2 border-blue-600 pb-2">
-                            Dokumen Persyaratan
-                        </h2>
-                        <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
-                            @forelse ($mosquePermit->data as $d)
-                                <li class="pl-2 leading-relaxed">{{ $d }}</li>
-                            @empty
-                                <p class="text-center text-gray-500">Tidak ada data persyaratan yang tersedia.</p>
-                            @endforelse
-                        </ul>
+                    <div class="mb-10" x-data="{ activeTab: 'meninggal' }">
+                        <div class="mb-8 border-b border-gray-200">
+                            <nav class="-mb-px flex space-x-6">
+                                <a href="#" class="py-4 px-1 border-b-2 font-medium text-sm"
+                                    :class="{
+                                        'border-blue-600 text-blue-700': activeTab === 'meninggal',
+                                        'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'meninggal'
+                                    }"
+                                    @click.prevent="activeTab = 'meninggal'">
+                                    Meninggal Dunia
+                                </a>
+                                <a href="#" class="py-4 px-1 border-b-2 font-medium text-sm"
+                                    :class="{
+                                        'border-blue-600 text-blue-700': activeTab === 'sakit',
+                                        'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'sakit'
+                                    }"
+                                    @click.prevent="activeTab = 'sakit'">
+                                    Sakit Permanen
+                                </a>
+                            </nav>
+                        </div>
+
+                        <div>
+                            <div x-show="activeTab === 'meninggal'">
+                                <h2 class="text-xl font-semibold text-gray-700 mb-4">
+                                    Persyaratan Pelimpahan Karena Jamaah Wafat
+                                </h2>
+                                <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
+                                    @forelse ($hajjDelegation->meninggal_dunia as $md)
+                                        <li class="pl-2 leading-relaxed">{{ $md }}</li>
+                                    @empty
+                                        <p class="text-center text-gray-500">Persyaratan tidak tersedia.</p>
+                                    @endforelse
+                                </ul>
+                            </div>
+
+                            <div x-show="activeTab === 'sakit'" style="display: none;">
+                                <h2 class="text-xl font-semibold text-gray-700 mb-4">
+                                    Persyaratan Pelimpahan Karena Sakit Permanen
+                                </h2>
+                                <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
+                                    @forelse ($hajjDelegation->sakit_permanen as $sp)
+                                        <li class="pl-2 leading-relaxed">{{ $sp }}</li>
+                                    @empty
+                                        <p class="text-center text-gray-500">Persyaratan tidak tersedia.</p>
+                                    @endforelse
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
@@ -72,8 +110,8 @@
                                         1</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Pengajuan Permohonan</h3>
-                                <p class="text-gray-600 mt-1">Pemohon menyerahkan berkas permohonan beserta kelengkapan
-                                    persyaratan</p>
+                                <p class="text-gray-600 mt-1">Pemohon (ahli waris) membawa surat permohonan pelimpahan porsi
+                                    beserta berkas persyaratan</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -94,7 +132,8 @@
                                         3</div>
                                 </div>
                                 <h3 class="font-semibold text-gray-800">Pengajuan Berkas</h3>
-                                <p class="text-gray-600 mt-1">Petugas menyerahkan berkas lengkap ke petugas Seksi Bimas</p>
+                                <p class="text-gray-600 mt-1">Berkas lengkap diserahkan pada petugas seksi untuk dimintakan
+                                    disposisi oleh kepala seksi</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -103,9 +142,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         4</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Verifikasi Lapangan</h3>
-                                <p class="text-gray-600 mt-1">Tim verifikator Seksi Bimas melakukan verifikasi langsung
-                                    ke lapangan</p>
+                                <h3 class="font-semibold text-gray-800">Verifikasi Berkas</h3>
+                                <p class="text-gray-600 mt-1">Petugas seksi melakukan verifikasi berkas dan interview kepada
+                                    calon haji yang berhak melunasi</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -114,8 +153,9 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         5</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Entri Data</h3>
-                                <p class="text-gray-600 mt-1">Petugas seksi melakukan entri data pada aplikasi SIMAS</p>
+                                <h3 class="font-semibold text-gray-800">Disposisi</h3>
+                                <p class="text-gray-600 mt-1">Berkas lengkap kemudian didisposisi oleh kepala Kantor/Kepala
+                                    Seksi</p>
                             </div>
 
                             <div class="relative pl-12">
@@ -124,29 +164,10 @@
                                         class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
                                         6</div>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Penerbitan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Jika hasil verifikasi dinyatakan layak, ID/sertifikat
-                                    masjid/musholla diterbitkan</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        7</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Disposisi</h3>
-                                <p class="text-gray-600 mt-1">ID/sertifikat masjid/mushola didisposisi oleh kepala seksi</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        8</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Penyerahan Sertifikat</h3>
-                                <p class="text-gray-600 mt-1">Sertifikat masjid/mushola diserahkan kepada pemohon</p>
+                                <h3 class="font-semibold text-gray-800">Penyerahan Surat</h3>
+                                <p class="text-gray-600 mt-1">Surat pengantar permohonan pelimpahan porsi diserahkan kepada
+                                    pemohon
+                                </p>
                             </div>
                         </div>
                     </div>

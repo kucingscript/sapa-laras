@@ -20,7 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource("/", LandingController::class);
 Route::name('service.')->group(function () {
-    Route::get('service/mosque-permit/{mp}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
+    Route::get('service/mosque-permit/{mosque_permit}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
+    Route::get('service/majlis-taklim/{majlis_taklim}', [ServiceController::class, 'showMajlisTaklim'])->name('majlis_taklim');
+    Route::get('service/islamic-art-institution/{islamic_art}', [ServiceController::class, 'showIslamicArt'])->name('islamic_art');
+    Route::get('service/hajj-regular-registration/{hajj_regular}', [ServiceController::class, 'showHajjRegular'])->name('hajj_regular');
+    Route::get('service/hajj-cancellation/{hajj_cancellation}', [ServiceController::class, 'showHajjCancellation'])->name('hajj_cancellation');
+    Route::get('service/hajj-delegation/{hajj_delegation}', [ServiceController::class, 'showHajjDelegation'])->name('hajj_delegation');
+    Route::get('service/santri-study-abroad/{study_abroad}', [ServiceController::class, 'showSantriStudyAbroad'])->name('study_abroad');
+    Route::get('service/pesantren-operational-permit/{ponpes}', [ServiceController::class, 'showPonpes'])->name('ponpes');
+    Route::get('service/madin-operational-permit/{madin}', [ServiceController::class, 'showMadin'])->name('madin');
+    Route::get('service/lpq-registration/{lpq}', [ServiceController::class, 'showLpq'])->name('lpq');
+    Route::get('service/madrasah-operational-permit/{madrasah}', [ServiceController::class, 'showMadrasah'])->name('madrasah');
+    Route::get('service/waqf-pledge-deed/{waqf}', [ServiceController::class, 'showWaqf'])->name('waqf');
 });
 
 Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'])->group(function () {

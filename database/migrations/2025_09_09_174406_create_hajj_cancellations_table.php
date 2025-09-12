@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('hajj_cancellations', function (Blueprint $table) {
             $table->id();
             $table->json('data');
+            $table->json('data2');
             $table->timestamps();
         });
     }

@@ -8,9 +8,11 @@ class HajjCancellation extends Model
 {
     protected $fillable = [
         'data',
+        'data2',
     ];
 
     protected $casts = [
         'data' => 'array',
+        'data2' => 'array',
     ];
 }
