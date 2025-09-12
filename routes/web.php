@@ -15,11 +15,10 @@ use App\Http\Controllers\Backsite\MosquePermitController;
 use App\Http\Controllers\Backsite\PesantrenOperationalPermitController;
 use App\Http\Controllers\Backsite\SantriStudyAbroadController;
 use App\Http\Controllers\Backsite\WaqfPledgeDeedController;
+use App\Http\Controllers\Frontsite\LandingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource("/", LandingController::class);
 
 Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'])->group(function () {
     Route::resource('dashboard', DashboardController::class);

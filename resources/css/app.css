@@ -16,3 +16,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant hover (&:hover);
+
+html {
+    scroll-behavior: smooth;
+}
