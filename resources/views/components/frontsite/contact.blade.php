@@ -1,6 +1,5 @@
-<section class="max-w-[85rem] px-4 sm:px-6 lg:px-8 pb-8 mx-auto">
+<section id="contact" class="max-w-[85rem] px-4 sm:px-6 lg:px-8 pb-8 mx-auto">
     <div class="relative p-6 md:p-12 bg-white rounded-2xl shadow-lg overflow-hidden">
-
         <div class="hidden md:block absolute top-0 end-0 size-36">
             <div
                 class="absolute top-8 right-[-40px] transform rotate-45 w-48 h-10 bg-blue-600 flex items-center justify-center">

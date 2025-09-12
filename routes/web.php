@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Backsite\UserController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\HajjCancellationController;
 use App\Http\Controllers\Backsite\HajjDelegationController;
@@ -16,9 +15,13 @@ use App\Http\Controllers\Backsite\PesantrenOperationalPermitController;
 use App\Http\Controllers\Backsite\SantriStudyAbroadController;
 use App\Http\Controllers\Backsite\WaqfPledgeDeedController;
 use App\Http\Controllers\Frontsite\LandingController;
+use App\Http\Controllers\Frontsite\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource("/", LandingController::class);
+Route::name('service.')->group(function () {
+    Route::get('service/mosque-permit/{mp}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
+});
 
 Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'])->group(function () {
     Route::resource('dashboard', DashboardController::class);
@@ -34,7 +37,6 @@ Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'
     Route::resource('lpq-registration', LpqRegistrationController::class);
     Route::resource('madrasah-operational-permit', MadrasahOperationalPermitController::class);
     Route::resource('waqf-pledge-deed', WaqfPledgeDeedController::class);
-    // Route::resource('users', UserController::class);
 });
 
 // Route::middleware('auth')->group(function () {

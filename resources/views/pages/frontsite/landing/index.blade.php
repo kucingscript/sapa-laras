@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
 @section('content')
     @include('components.frontsite.header')

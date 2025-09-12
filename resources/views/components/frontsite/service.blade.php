@@ -1,7 +1,7 @@
 <section id="service" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-18 mx-auto">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-6">
         <a class="group flex flex-col justify-center bg-white shadow-md focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7"
-            href="#">
+            href={{ route('service.mosque_permit', 1) }}>
             <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
                 <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -16,7 +16,8 @@
                 </svg>
             </div>
             <div class="mt-5">
-                <h3 class="group-hover:text-gray-600 text-lg font-semibold text-gray-800">Sertifikat Masjid</h3>
+                <h3 class="group-hover:text-gray-600 text-lg font-semibold text-gray-800">Sertifikat Masjid / Musholla
+                </h3>
                 <p class="mt-1 text-gray-600">Layanan Permohonan Sertifikat Masjid / Musholla</p>
                 <span
                     class="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium">
