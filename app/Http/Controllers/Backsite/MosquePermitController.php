@@ -14,7 +14,7 @@ class MosquePermitController extends Controller
     public function index()
     {
         $data = MosquePermit::paginate(1);
-        return view('pages.backsite.mosque-permit.index', \compact('data'));
+        return view('pages.backsite.mosque-permit.index', compact('data'));
     }
 
     /**
@@ -44,17 +44,48 @@ class MosquePermitController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(MosquePermit $mosquePermit)
     {
-        //
+        return view('pages.backsite.mosque-permit.edit', compact('mosquePermit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, MosquePermit $mosquePermit)
     {
-        //
+        $request->validate([
+            'requirements' => 'required|array|min:1',
+            'requirements.*' => 'required|string|max:255',
+        ]);
+
+        $requirementsArray = array_filter($request->input('requirements'));
+
+        if (empty($requirementsArray)) {
+            return back()->withErrors(['requirements' => 'Minimal harus ada satu persyaratan yang diisi.'])->withInput();
+        }
+
+        $mosquePermit->update([
+            'data' => $requirementsArray,
+        ]);
+
+        try {
+            $mosquePermit->update([
+                'data' => $requirementsArray,
+            ]);
+
+            return redirect()->route('backsite.mosque-permit.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Data persyaratan berhasil diperbarui.'
+            ]);
+        } catch (Exception $e) {
+            return back()->withInput()->with('alert', [
+                'type' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Terjadi kesalahan saat memperbarui data. Silakan coba lagi.'
+            ]);
+        }
     }
 
     /**

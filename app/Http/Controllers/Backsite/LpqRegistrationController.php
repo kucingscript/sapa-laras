@@ -44,17 +44,48 @@ class LpqRegistrationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(LpqRegistration $lpqRegistration)
     {
-        //
+        return view('pages.backsite.lpq-registration.edit', compact('lpqRegistration'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, LpqRegistration $lpqRegistration)
     {
-        //
+        $request->validate([
+            'requirements' => 'required|array|min:1',
+            'requirements.*' => 'required|string|max:255',
+        ]);
+
+        $requirementsArray = array_filter($request->input('requirements'));
+
+        if (empty($requirementsArray)) {
+            return back()->withErrors(['requirements' => 'Minimal harus ada satu persyaratan yang diisi.'])->withInput();
+        }
+
+        $lpqRegistration->update([
+            'data' => $requirementsArray,
+        ]);
+
+        try {
+            $lpqRegistration->update([
+                'data' => $requirementsArray,
+            ]);
+
+            return redirect()->route('backsite.lpq-registration.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Data persyaratan berhasil diperbarui.'
+            ]);
+        } catch (Exception $e) {
+            return back()->withInput()->with('alert', [
+                'type' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Terjadi kesalahan saat memperbarui data. Silakan coba lagi.'
+            ]);
+        }
     }
 
     /**

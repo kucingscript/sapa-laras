@@ -3,8 +3,13 @@
         <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
 
             <div class="relative md:order-2">
-                <img class="w-full h-[450px] sm:h-[650px] object-cover rounded-md" src="{{ asset('images/hero.webp') }}"
+                <img class="w-full h-[400px] sm:h-[600px] object-cover rounded-md" src="{{ asset('images/hero.webp') }}"
                     alt="Hero Image">
+
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent rounded-md">
+                </div>
+
                 <div
                     class="absolute inset-0 -z-10 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 bg-gradient-to-tr from-blue-200 via-white/0 to-white/0 blur-2xl">
                 </div>

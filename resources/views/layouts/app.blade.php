@@ -20,6 +20,7 @@
     @include('components.backsite.header')
     @include('components.backsite.breadcrumb')
     @include('components.backsite.sidebar')
+    @include('components.backsite.alert')
 
     @yield('content')
 

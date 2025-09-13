@@ -44,17 +44,48 @@ class SantriStudyAbroadController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(SantriStudyAbroad $santriStudyAbroad)
     {
-        //
+        return view('pages.backsite.santri-study-abroad.edit', compact('santriStudyAbroad'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, SantriStudyAbroad $santriStudyAbroad)
     {
-        //
+        $request->validate([
+            'requirements' => 'required|array|min:1',
+            'requirements.*' => 'required|string|max:255',
+        ]);
+
+        $requirementsArray = array_filter($request->input('requirements'));
+
+        if (empty($requirementsArray)) {
+            return back()->withErrors(['requirements' => 'Minimal harus ada satu persyaratan yang diisi.'])->withInput();
+        }
+
+        $santriStudyAbroad->update([
+            'data' => $requirementsArray,
+        ]);
+
+        try {
+            $santriStudyAbroad->update([
+                'data' => $requirementsArray,
+            ]);
+
+            return redirect()->route('backsite.santri-study-abroad.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Data persyaratan berhasil diperbarui.'
+            ]);
+        } catch (Exception $e) {
+            return back()->withInput()->with('alert', [
+                'type' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Terjadi kesalahan saat memperbarui data. Silakan coba lagi.'
+            ]);
+        }
     }
 
     /**

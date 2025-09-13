@@ -44,17 +44,48 @@ class MajlisTaklimCertificateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(MajlisTaklimCertificate $majlisTaklimCertificate)
     {
-        //
+        return view('pages.backsite.majlis-taklim-certificate.edit', compact('majlisTaklimCertificate'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, MajlisTaklimCertificate $majlisTaklimCertificate)
     {
-        //
+        $request->validate([
+            'requirements' => 'required|array|min:1',
+            'requirements.*' => 'required|string|max:255',
+        ]);
+
+        $requirementsArray = array_filter($request->input('requirements'));
+
+        if (empty($requirementsArray)) {
+            return back()->withErrors(['requirements' => 'Minimal harus ada satu persyaratan yang diisi.'])->withInput();
+        }
+
+        $majlisTaklimCertificate->update([
+            'data' => $requirementsArray,
+        ]);
+
+        try {
+            $majlisTaklimCertificate->update([
+                'data' => $requirementsArray,
+            ]);
+
+            return redirect()->route('backsite.majlis-taklim-certificate.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Data persyaratan berhasil diperbarui.'
+            ]);
+        } catch (Exception $e) {
+            return back()->withInput()->with('alert', [
+                'type' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Terjadi kesalahan saat memperbarui data. Silakan coba lagi.'
+            ]);
+        }
     }
 
     /**

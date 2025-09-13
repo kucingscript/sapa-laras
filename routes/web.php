@@ -22,7 +22,7 @@ Route::resource("/", LandingController::class);
 Route::name('service.')->group(function () {
     Route::get('service/mosque-permit/{mosque_permit}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
     Route::get('service/majlis-taklim/{majlis_taklim}', [ServiceController::class, 'showMajlisTaklim'])->name('majlis_taklim');
-    Route::get('service/islamic-art-institution/{islamic_art}', [ServiceController::class, 'showIslamicArt'])->name('islamic_art');
+    Route::get('service/islamic-art-insitution/{islamic_art}', [ServiceController::class, 'showIslamicArt'])->name('islamic_art');
     Route::get('service/hajj-regular-registration/{hajj_regular}', [ServiceController::class, 'showHajjRegular'])->name('hajj_regular');
     Route::get('service/hajj-cancellation/{hajj_cancellation}', [ServiceController::class, 'showHajjCancellation'])->name('hajj_cancellation');
     Route::get('service/hajj-delegation/{hajj_delegation}', [ServiceController::class, 'showHajjDelegation'])->name('hajj_delegation');
@@ -38,7 +38,7 @@ Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'
     Route::resource('dashboard', DashboardController::class);
     Route::resource('mosque-permit', MosquePermitController::class);
     Route::resource('majlis-taklim-certificate', MajlisTaklimCertificateController::class);
-    Route::resource('islamic-art-institution', IslamicArtInsitutionController::class);
+    Route::resource('islamic-art-insitution', IslamicArtInsitutionController::class);
     Route::resource('hajj-regular-registration', HajjRegularRegistrationController::class);
     Route::resource('hajj-cancellation', HajjCancellationController::class);
     Route::resource('hajj-delegation', HajjDelegationController::class);

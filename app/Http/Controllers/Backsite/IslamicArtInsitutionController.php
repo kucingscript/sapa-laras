@@ -14,7 +14,7 @@ class IslamicArtInsitutionController extends Controller
     public function index()
     {
         $data = IslamicArtInsitution::paginate(1);
-        return view('pages.backsite.islamic-art-insitution.index', \compact('data'));
+        return view('pages.backsite.islamic-art-insitution.index', compact('data'));
     }
 
     /**
@@ -44,17 +44,48 @@ class IslamicArtInsitutionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(IslamicArtInsitution $islamicArtInsitution)
     {
-        //
+        return view('pages.backsite.islamic-art-insitution.edit', compact('islamicArtInsitution'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, IslamicArtInsitution $islamicArtInsitution)
     {
-        //
+        $request->validate([
+            'requirements' => 'required|array|min:1',
+            'requirements.*' => 'required|string|max:255',
+        ]);
+
+        $requirementsArray = array_filter($request->input('requirements'));
+
+        if (empty($requirementsArray)) {
+            return back()->withErrors(['requirements' => 'Minimal harus ada satu persyaratan yang diisi.'])->withInput();
+        }
+
+        $islamicArtInsitution->update([
+            'data' => $requirementsArray,
+        ]);
+
+        try {
+            $islamicArtInsitution->update([
+                'data' => $requirementsArray,
+            ]);
+
+            return redirect()->route('backsite.islamic-art-insitution.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Data persyaratan berhasil diperbarui.'
+            ]);
+        } catch (Exception $e) {
+            return back()->withInput()->with('alert', [
+                'type' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Terjadi kesalahan saat memperbarui data. Silakan coba lagi.'
+            ]);
+        }
     }
 
     /**

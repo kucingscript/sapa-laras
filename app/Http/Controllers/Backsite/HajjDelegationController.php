@@ -44,17 +44,44 @@ class HajjDelegationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(HajjDelegation $hajjDelegation)
     {
-        //
+        return view('pages.backsite.hajj-delegation.edit', compact('hajjDelegation'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, HajjDelegation $hajjDelegation)
     {
-        //
+        $request->validate([
+            'meninggal_dunia'   => 'required|array|min:1',
+            'meninggal_dunia.*' => 'required|string|max:255',
+            'sakit_permanen'   => 'required|array|min:1',
+            'sakit_permanen.*' => 'required|string|max:255',
+        ]);
+
+        $dataArray = array_filter($request->input('meninggal_dunia'));
+        $data2Array = array_filter($request->input('sakit_permanen'));
+
+        try {
+            $hajjDelegation->update([
+                'meninggal_dunia' => $dataArray,
+                'sakit_permanen' => $data2Array,
+            ]);
+
+            return redirect()->route('backsite.hajj-delegation.index')->with('alert', [
+                'type' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Data persyaratan berhasil diperbarui.'
+            ]);
+        } catch (Exception $e) {
+            return back()->withInput()->with('alert', [
+                'type' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Terjadi kesalahan saat memperbarui data.'
+            ]);
+        }
     }
 
     /**
