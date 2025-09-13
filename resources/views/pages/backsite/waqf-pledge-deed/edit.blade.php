@@ -7,7 +7,7 @@
 
             <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 mt-5 dark:bg-slate-900">
                 <h2 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">
-                    Formulir Edit Persyaratan
+                    Formulir Edit Persyaratan Akta Ikrar Wakaf
                 </h2>
 
                 <form action="{{ route('backsite.waqf-pledge-deed.update', $waqfPledgeDeed->id) }}" method="POST">
@@ -15,26 +15,44 @@
                     @method('PUT')
 
                     @php
-                        function renderDynamicSection($title, $columnName, $model, $placeholder)
+                        function renderDynamicSection($title, $columnName, $model, $placeholder, $errors)
                         {
-                            $items = json_encode(old($columnName, $model->{$columnName} ?? ['']));
+                            $itemsArray = old($columnName, $model->{$columnName} ?? ['']);
+                            if (empty($itemsArray)) {
+                                $itemsArray = [''];
+                            }
+                            $items = json_encode($itemsArray);
+
+                            $fieldErrors = [];
+                            if ($errors->has("{$columnName}.*")) {
+                                foreach ($errors->get("{$columnName}.*") as $key => $messages) {
+                                    $fieldErrors[$key] = $messages[0];
+                                }
+                            }
+                            $errorsJson = json_encode($fieldErrors);
+                            $columnNameJson = json_encode($columnName);
+
                             echo <<<HTML
-                                <div class="mb-10" x-data="{ items: $items }">
+                                <div class="mb-10" x-data='{ "items": $items, "errors": $errorsJson, "columnName": $columnNameJson }'>
                                     <label class="block text-base font-medium text-gray-800 dark:text-gray-200 mb-5 border-b-2 border-blue-600 pb-2">
                                         $title <span class="text-red-600">*</span>
                                     </label>
 
                                     <template x-for="(item, index) in items" :key="index">
-                                        <div class="flex items-center space-x-2 mb-3 text-sm">
-                                            <input type="text" name="{$columnName}[]" x-model="items[index]"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-800 dark:border-gray-700 dark:text-gray-300"
-                                                placeholder="$placeholder">
+                                        <div class="mb-3">
+                                            <div class="flex items-center space-x-2 text-sm">
+                                                <input type="text" name="{$columnName}[]" x-model="items[index]"
+                                                    :class="{ 'border-red-500': errors[columnName + '.' + index] }"
+                                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-800 dark:border-gray-700 dark:text-gray-300"
+                                                    placeholder="$placeholder">
 
-                                            <button type="button" @click="items.splice(index, 1)"
-                                                class="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-                                                :disabled="items.length === 1">
-                                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
-                                            </button>
+                                                <button type="button" @click="items.splice(index, 1)"
+                                                    class="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                                                    :disabled="items.length === 1">
+                                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                                </button>
+                                            </div>
+                                            <p x-show="errors[columnName + '.' + index]" x-text="errors[columnName + '.' + index]" class="text-red-500 text-xs mt-1"></p>
                                         </div>
                                     </template>
 
@@ -54,45 +72,58 @@
                             'Wakif Perseorangan',
                             'wakif_perseorangan',
                             $waqfPledgeDeed,
-                            'Contoh: Fotokopi KTP Wakif',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
                         renderDynamicSection(
                             'Wakif Organisasi',
                             'wakif_organisasi',
                             $waqfPledgeDeed,
-                            'Contoh: AD/ART Organisasi',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
                         renderDynamicSection(
                             'Wakif Badan Hukum',
                             'wakif_badan_hukum',
                             $waqfPledgeDeed,
-                            'Contoh: Akta Pendirian Badan Hukum',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
                         renderDynamicSection(
                             'Nazhir Perseorangan',
                             'nazhir_perseorangan',
                             $waqfPledgeDeed,
-                            'Contoh: Fotokopi KTP Nazhir',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
                         renderDynamicSection(
                             'Nazhir Organisasi',
                             'nazhir_organisasi',
                             $waqfPledgeDeed,
-                            'Contoh: SK Pengurus Nazhir',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
                         renderDynamicSection(
                             'Nazhir Badan Hukum',
                             'nazhir_badan_hukum',
                             $waqfPledgeDeed,
-                            'Contoh: Tanda Daftar Badan Hukum',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
                         renderDynamicSection(
                             'Tanah yang Diwakafkan',
                             'tanah_diwakafkan',
                             $waqfPledgeDeed,
-                            'Contoh: Sertifikat Tanah Asli',
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
                         );
-                        renderDynamicSection('Saksi', 'saksi', $waqfPledgeDeed, 'Contoh: Fotokopi KTP Saksi');
+                        renderDynamicSection(
+                            'Saksi',
+                            'saksi',
+                            $waqfPledgeDeed,
+                            'Contoh: Surat Permohonan Izin',
+                            $errors,
+                        );
                     @endphp
 
 
