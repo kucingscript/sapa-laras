@@ -4,14 +4,20 @@
 @source "../../node_modules/preline/dist/*.js";
 
 @layer base {
-    body {
-        font-family: "Poppins", sans-serif !important;
-    }
-
     button:not(:disabled),
     [role="button"]:not(:disabled) {
         cursor: pointer;
     }
+}
+
+@theme {
+    /* --color-primary: #f8f9fa;
+    --color-secondary: #9b2226;
+    --color-secondaryhvr: #6a040f; */
+
+    --color-primary: #f4f5f0;
+    --color-secondary: #166534;
+    --color-secondaryhvr: #14532d;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

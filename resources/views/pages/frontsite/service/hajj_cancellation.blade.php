@@ -3,190 +3,176 @@
 @section('title', 'Pembatalan Haji Reguler')
 
 @section('content')
-    <div class="bg-slate-50">
+    <div class="relative bg-secondary/10 overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 size-96 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 left-0 -z-10 size-96 bg-secondary/10 rounded-full blur-3xl opacity-50"></div>
+
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="p-6 sm:p-10">
-                    <div class="text-center mb-10">
-                        <div class="flex justify-center items-center mb-4">
-                            <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag" class="h-20 w-auto">
-                        </div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Pembatalan Porsi Jamaah Haji Reguler
-                        </h1>
-                        <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda
-                            lalui</p>
-                    </div>
 
-                    <div class="mb-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center">
-                            <svg class="w-8 h-8 text-blue-600 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <div class="bg-gradient-to-br from-secondary to-secondaryhvr p-6 sm:p-8 text-center">
+                    <div class="flex justify-center items-center mb-4">
+                        <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag"
+                            class="h-20 w-auto bg-white rounded-full p-2 shadow-md">
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-white">
+                        Layanan Pembatalan Porsi Jamaah Haji Reguler
+                    </h1>
+                    <p class="text-white/80 mt-2 text-base">
+                        Berikut adalah dokumen dan prosedur yang perlu Anda lalui.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-10">
+                    <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4 border rounded-lg p-4 bg-slate-50">
+                        <div class="flex items-center">
+                            <svg class="flex-shrink-0 w-8 h-8 text-secondary mr-4" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <div>
-                                <h3 class="font-semibold text-gray-700">Waktu Layanan</h3>
-                                <p class="text-gray-600">1 Hari Proses</p>
+                            <div class="text-left">
+                                <h3 class="font-semibold text-gray-700 text-sm uppercase tracking-wider">Waktu Layanan</h3>
+                                <p class="text-secondary font-bold text-lg">1 Hari Proses</p>
                             </div>
                         </div>
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
-                            <svg class="w-8 h-8 text-green-600 mr-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-banknote-icon lucide-banknote">
+                        <div class="border-t sm:border-t-0 sm:border-s pt-4 sm:pt-0 flex items-center sm:pl-4">
+                            <svg class="flex-shrink-0 w-8 h-8 text-green-600 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="20" height="12" x="2" y="6" rx="2" />
                                 <circle cx="12" cy="12" r="2" />
                                 <path d="M6 12h.01M18 12h.01" />
                             </svg>
-                            <div>
-                                <h3 class="font-semibold text-gray-700">Biaya Layanan</h3>
-                                <p class="text-gray-600">Tidak Dipungut Biaya</p>
+                            <div class="text-left">
+                                <h3 class="font-semibold text-gray-700 text-sm uppercase tracking-wider">Biaya Layanan</h3>
+                                <p class="text-green-600 font-bold text-lg">Tidak Dipungut Biaya</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-10" x-data="{ activeTab: 'persyaratan layanan' }">
-                        <div class="mb-8 border-b border-gray-200">
-                            <nav class="-mb-px flex space-x-6">
-                                <a href="#" class="py-4 px-1 border-b-2 font-medium text-sm"
-                                    :class="{
-                                        'border-blue-600 text-blue-700': activeTab === 'persyaratan layanan',
-                                        'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'persyaratan layanan'
-                                    }"
-                                    @click.prevent="activeTab = 'persyaratan layanan'">
-                                    Persyaratan Layanan
-                                </a>
-                                <a href="#" class="py-4 px-1 border-b-2 font-medium text-sm"
-                                    :class="{
-                                        'border-blue-600 text-blue-700': activeTab === 'batal karena wafat',
-                                        'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== 'batal karena wafat'
-                                    }"
-                                    @click.prevent="activeTab = 'batal karena wafat'">
-                                    Batal Karena Wafat
-                                </a>
-                            </nav>
+                    <div class="mb-12" x-data="{ activeTab: 'persyaratan' }">
+                        <div class="p-1 flex space-x-1 bg-secondary/10 rounded-lg mb-6">
+                            <button @click="activeTab = 'persyaratan'"
+                                :class="{
+                                    'bg-white text-secondary shadow': activeTab === 'persyaratan',
+                                    'text-gray-600 hover:bg-white/60 hover:text-secondary': activeTab !== 'persyaratan'
+                                }"
+                                class="w-full py-2.5 text-sm font-medium leading-5 text-center rounded-md transition-colors duration-150 focus:outline-none">
+                                Persyaratan Layanan
+                            </button>
+                            <button @click="activeTab = 'wafat'"
+                                :class="{
+                                    'bg-white text-secondary shadow': activeTab === 'wafat',
+                                    'text-gray-600 hover:bg-white/60 hover:text-secondary': activeTab !== 'wafat'
+                                }"
+                                class="w-full py-2.5 text-sm font-medium leading-5 text-center rounded-md transition-colors duration-150 focus:outline-none">
+                                Batal Karena Wafat
+                            </button>
                         </div>
 
-                        <div>
-                            <div x-show="activeTab === 'persyaratan layanan'">
-                                <h2 class="text-xl font-semibold text-gray-700 mb-4">
-                                    Persyaratan Layanan
-                                </h2>
-                                <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
-                                    @forelse ($hajjCancellation->data as $d)
-                                        <li class="pl-2 leading-relaxed">{{ $d }}</li>
-                                    @empty
-                                        <p class="text-center text-gray-500">Persyaratan tidak tersedia.</p>
-                                    @endforelse
-                                </ul>
-                            </div>
+                        <div x-show="activeTab === 'persyaratan'">
+                            <h3 class="text-xl font-bold text-secondary mb-4">Dokumen Persyaratan</h3>
+                            <ul class="space-y-3 text-gray-700 text-base">
+                                @forelse ($hajjCancellation->data as $d)
+                                    <li class="flex items-start">
+                                        <svg class="flex-shrink-0 w-5 h-5 text-secondary mt-1 mr-3"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{{ $d }}</span>
+                                    </li>
+                                @empty
+                                    <p class="text-center text-gray-500">Persyaratan tidak tersedia.</p>
+                                @endforelse
+                            </ul>
+                        </div>
 
-                            <div x-show="activeTab === 'batal karena wafat'" style="display: none;">
-                                <h2 class="text-xl font-semibold text-gray-700 mb-4">
-                                    Batal Karena Wafat
-                                </h2>
-                                <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
-                                    @forelse ($hajjCancellation->data2 as $d2)
-                                        <li class="pl-2 leading-relaxed">{{ $d2 }}</li>
-                                    @empty
-                                        <p class="text-center text-gray-500">Persyaratan tidak tersedia.</p>
-                                    @endforelse
-                                </ul>
-                            </div>
+                        <div x-show="activeTab === 'wafat'" style="display: none;">
+                            <h3 class="text-xl font-bold text-secondary mb-4">Dokumen Persyaratan (Batal Karena Wafat)</h3>
+                            <ul class="space-y-3 text-gray-700 text-base">
+                                @forelse ($hajjCancellation->data2 as $d2)
+                                    <li class="flex items-start">
+                                        <svg class="flex-shrink-0 w-5 h-5 text-secondary mt-1 mr-3"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                        <span>{{ $d2 }}</span>
+                                    </li>
+                                @empty
+                                    <p class="text-center text-gray-500">Persyaratan tidak tersedia.</p>
+                                @endforelse
+                            </ul>
                         </div>
                     </div>
 
                     <div>
-                        <h2 class="text-xl font-semibold text-gray-700 mb-8 border-b-2 border-blue-600 pb-2">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-8 border-b-2 border-secondary/20 pb-2">
                             Prosedur Layanan
                         </h2>
-
+                        @php
+                            $procedures = [
+                                [
+                                    'title' => 'Pengajuan Permohonan',
+                                    'description' =>
+                                        'Pemohon menyerahkan berkas permohonan beserta kelengkapan persyaratan',
+                                ],
+                                [
+                                    'title' => 'Verifikasi Berkas',
+                                    'description' =>
+                                        'Petugas menerima dokumen dan melakukan pengecekan kelengkapan berkas',
+                                ],
+                                [
+                                    'title' => 'Pengajuan Berkas',
+                                    'description' =>
+                                        'Petugas pelayanan memberikan berkas kepada petugas seksi untuk dimintakan disposisi',
+                                ],
+                                [
+                                    'title' => 'Proses Pembatalan',
+                                    'description' =>
+                                        'Berkas lengkap kemudian dilakukan proses pembatalan porsi Jamaah haji',
+                                ],
+                                [
+                                    'title' => 'Surat Pengantar',
+                                    'description' =>
+                                        'Petugas seksi membuat surat pengantar permohonan pembatalan porsi jamaah haji',
+                                ],
+                                [
+                                    'title' => 'Entri Data',
+                                    'description' =>
+                                        'Petugas seksi melakukan entri data, foto biometrik, dan unggah berkas pembatalan pada aplikasi SISKOHAT',
+                                ],
+                                [
+                                    'title' => 'Penyerahan Surat',
+                                    'description' =>
+                                        'Surat pengantar permohonan pembatalan porsi diserahkan kepada pemohon',
+                                ],
+                            ];
+                        @endphp
                         <div
-                            class="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:h-full before:w-0.5 before:bg-gray-200">
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        1</div>
+                            class="space-y-8 relative before:absolute before:inset-0 before:ml-2.5 before:h-full before:w-0.5 before:bg-gray-200">
+                            @foreach ($procedures as $index => $step)
+                                <div class="relative ps-12">
+                                    <div class="absolute -left-1.5 mt-1">
+                                        <div
+                                            class="flex items-center justify-center w-8 h-8 bg-secondary rounded-full text-white font-bold">
+                                            {{ $index + 1 }}
+                                        </div>
+                                    </div>
+                                    <h3 class="font-semibold text-gray-800">{{ $step['title'] }}</h3>
+                                    <p class="text-gray-600 mt-1">{{ $step['description'] }}</p>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Pengajuan Permohonan</h3>
-                                <p class="text-gray-600 mt-1">Pemohon menyerahkan berkas permohonan beserta kelengkapan
-                                    persyaratan</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        2</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Verifikasi Berkas</h3>
-                                <p class="text-gray-600 mt-1">Petugas menerima dokumen dan melakukan pengecekan kelengkapan
-                                    berkas</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        3</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Pengajuan Berkas</h3>
-                                <p class="text-gray-600 mt-1">Petugas pelayanan memberikan berkas kepada petugas seksi untuk
-                                    dimintakan disposisi</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        4</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Proses Pembatalan</h3>
-                                <p class="text-gray-600 mt-1">Berkas lengkap kemudian dilakukan proses pembatalan porsi
-                                    Jamaah haji</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        5</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Surat Pengantar</h3>
-                                <p class="text-gray-600 mt-1">Petugas seksi membuat surat pengantar permohonan pembatalan
-                                    porsi jamaah haji</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        6</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Entri Data</h3>
-                                <p class="text-gray-600 mt-1">Petugas seksi melakukan entri data, foto biometrik, dan unggah
-                                    berkas pembatalan pada aplikasi SISKOHAT
-                                </p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        7</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Penyerahan Surat</h3>
-                                <p class="text-gray-600 mt-1">Surat pengantar permohonan pembatalan porsi diserahkan
-                                    kepada pemohon
-                                </p>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="mt-12 text-center">
                         <a href="{{ url('/#service') }}"
-                            class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 transition-all">
+                            class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-secondary text-white hover:bg-secondaryhvr transition-all">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">

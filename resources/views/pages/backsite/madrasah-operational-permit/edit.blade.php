@@ -56,7 +56,7 @@
                             Batal
                         </a>
                         <button type="submit"
-                            class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">
+                            class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-secondary text-white hover:bg-secondaryhvr">
                             Simpan Perubahan
                         </button>
                     </div>

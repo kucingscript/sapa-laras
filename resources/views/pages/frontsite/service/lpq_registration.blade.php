@@ -3,55 +3,67 @@
 @section('title', 'Tanda Daftar LPQ / TPQ')
 
 @section('content')
-    <div class="bg-slate-50">
+    <div class="relative bg-secondary/10 overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 size-96 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 left-0 -z-10 size-96 bg-secondary/10 rounded-full blur-3xl opacity-50"></div>
+
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="p-6 sm:p-10">
-                    <div class="text-center mb-10">
-                        <div class="flex justify-center items-center mb-4">
-                            <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag" class="h-20 w-auto">
-                        </div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Layanan Tanda Daftar LPQ / TPQ
-                        </h1>
-                        <p class="text-gray-500 mt-2 text-base">Berikut adalah dokumen dan prosedur yang perlu Anda
-                            lalui</p>
-                    </div>
 
-                    <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center">
-                            <svg class="w-8 h-8 text-blue-600 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <div class="bg-gradient-to-br from-secondary to-secondaryhvr p-6 sm:p-8 text-center">
+                    <div class="flex justify-center items-center mb-4">
+                        <img src="{{ asset('images/logo.webp') }}" alt="Logo Kemenag"
+                            class="h-20 w-auto bg-white rounded-full p-2 shadow-md">
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-white">
+                        Layanan Tanda Daftar LPQ / TPQ
+                    </h1>
+                    <p class="text-white/80 mt-2 text-base">
+                        Berikut adalah dokumen dan prosedur yang perlu Anda lalui.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-10">
+                    <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4 border rounded-lg p-4 bg-slate-50">
+                        <div class="flex items-center">
+                            <svg class="flex-shrink-0 w-8 h-8 text-secondary mr-4" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <div>
-                                <h3 class="font-semibold text-gray-700">Waktu Layanan</h3>
-                                <p class="text-gray-600">7 Hari Proses</p>
+                            <div class="text-left">
+                                <h3 class="font-semibold text-gray-700 text-sm uppercase tracking-wider">Waktu Layanan</h3>
+                                <p class="text-secondary font-bold text-lg">7 Hari Proses</p>
                             </div>
                         </div>
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
-                            <svg class="w-8 h-8 text-green-600 mr-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-banknote-icon lucide-banknote">
+                        <div class="border-t sm:border-t-0 sm:border-s pt-4 sm:pt-0 flex items-center sm:pl-4">
+                            <svg class="flex-shrink-0 w-8 h-8 text-green-600 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="20" height="12" x="2" y="6" rx="2" />
                                 <circle cx="12" cy="12" r="2" />
                                 <path d="M6 12h.01M18 12h.01" />
                             </svg>
-                            <div>
-                                <h3 class="font-semibold text-gray-700">Biaya Layanan</h3>
-                                <p class="text-gray-600">Tidak Dipungut Biaya</p>
+                            <div class="text-left">
+                                <h3 class="font-semibold text-gray-700 text-sm uppercase tracking-wider">Biaya Layanan</h3>
+                                <p class="text-green-600 font-bold text-lg">Tidak Dipungut Biaya</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-10">
-                        <h2 class="text-xl font-semibold text-gray-700 mb-4 border-b-2 border-blue-600 pb-2">
-                            Dokumen Persyaratan
-                        </h2>
-                        <ul class="space-y-3 text-gray-700 list-decimal list-inside text-base">
+                    <div class="mb-12">
+                        <h2 class="text-xl font-bold text-secondary mb-4">Dokumen Persyaratan</h2>
+                        <ul class="space-y-3 text-gray-700 text-base">
                             @forelse ($lpq->data as $d)
-                                <li class="pl-2 leading-relaxed">{{ $d }}</li>
+                                <li class="flex items-start">
+                                    <svg class="flex-shrink-0 w-5 h-5 text-secondary mt-1 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                    <span>{{ $d }}</span>
+                                </li>
                             @empty
                                 <p class="text-center text-gray-500">Tidak ada data persyaratan yang tersedia.</p>
                             @endforelse
@@ -59,86 +71,62 @@
                     </div>
 
                     <div>
-                        <h2 class="text-xl font-semibold text-gray-700 mb-8 border-b-2 border-blue-600 pb-2">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-8 border-b-2 border-secondary/20 pb-2">
                             Prosedur Layanan
                         </h2>
-
+                        @php
+                            $procedures = [
+                                [
+                                    'title' => 'Pengajuan Permohonan',
+                                    'description' =>
+                                        'Pemohon melakukan pendaftaran online melalui <a class="font-medium text-secondary hover:underline" href="https://sipdarlpq.kemenag.go.id" target="_blank" rel="noopener noreferrer">sipdarlpq.kemenag.go.id</a> dimulai dengan melakukan registrasi',
+                                ],
+                                [
+                                    'title' => 'Melengkapi Profil',
+                                    'description' =>
+                                        'Pemohon melengkapi profil kelembagaan lalu mengunggah berkas persyaratan',
+                                ],
+                                [
+                                    'title' => 'Proses Pengajuan',
+                                    'description' =>
+                                        'Pemohon melakukan proses pengajuan tanda daftar pada menu Status LPQ',
+                                ],
+                                [
+                                    'title' => 'Verifikasi Lapangan',
+                                    'description' =>
+                                        'Petugas verifikator melakukan verifikasi langsung ke lokasi pemohon',
+                                ],
+                                [
+                                    'title' => 'Hasil Verifikasi',
+                                    'description' =>
+                                        'Hasil verifikasi diunggah pada aplikasi SIPDAR oleh petugas dan perubahan status factual',
+                                ],
+                                [
+                                    'title' => 'Penyerahan Surat',
+                                    'description' => 'Surat rekomendasi dan izin operasional diserahkan kepada pemohon',
+                                ],
+                            ];
+                        @endphp
                         <div
-                            class="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:h-full before:w-0.5 before:bg-gray-200">
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        1</div>
+                            class="space-y-8 relative before:absolute before:inset-0 before:ml-2.5 before:h-full before:w-0.5 before:bg-gray-200">
+                            @foreach ($procedures as $index => $step)
+                                <div class="relative ps-12">
+                                    <div class="absolute -left-1.5 mt-1">
+                                        <div
+                                            class="flex items-center justify-center w-8 h-8 bg-secondary rounded-full text-white font-bold">
+                                            {{ $index + 1 }}
+                                        </div>
+                                    </div>
+                                    <h3 class="font-semibold text-gray-800">{{ $step['title'] }}</h3>
+                                    <p class="text-gray-600 mt-1">{!! $step['description'] !!}</p>
                                 </div>
-                                <h3 class="font-semibold text-gray-800">Pengajuan Permohonan</h3>
-                                <p class="text-gray-600 mt-1">Pemohon melakukan pendaftaran online melalui
-                                    <a class="text-blue-600" href="https://sipdarlpq.kemenag.go.id" target="_blank" noopener
-                                        noreferrer>https://sipdarlpq.kemenag.go.id</a> dimulai dengan melakukan registrasi
-                                </p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        2</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Melengkapi Profil</h3>
-                                <p class="text-gray-600 mt-1">Pemohon melengkapi profil kelembagaan lalu mengunggah berkas
-                                    persyaratan</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        3</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Proses Pengajuan</h3>
-                                <p class="text-gray-600 mt-1">Pemohon melakukan proses pengajuan tanda daftar pada menu
-                                    Status LPQ</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        4</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Verifikasi Lapangan</h3>
-                                <p class="text-gray-600 mt-1">Petugas verifikator melakukan verifikasi langsung ke lokasi
-                                    pemohon</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        5</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Hasil Verifikasi</h3>
-                                <p class="text-gray-600 mt-1">Hasil verifikasi diunggah pada aplikasi SIPDAR oleh petugas
-                                    dan perubahan status factual</p>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <div class="absolute -left-1.5 mt-1">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">
-                                        6</div>
-                                </div>
-                                <h3 class="font-semibold text-gray-800">Penyerahan Surat</h3>
-                                <p class="text-gray-600 mt-1">Surat rekomendasi dan izin operasional diserahkan kepada
-                                    pemohon
-                                </p>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="mt-12 text-center">
                         <a href="{{ url('/#service') }}"
-                            class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 transition-all">
+                            class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-secondary text-white hover:bg-secondaryhvr transition-all">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">

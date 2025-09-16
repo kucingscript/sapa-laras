@@ -16,7 +16,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased bg-gray-50 dark:bg-neutral-900">
+<body class="antialiased bg-gray-50 dark:bg-neutral-900 font-poppins">
     @include('components.backsite.header')
     @include('components.backsite.breadcrumb')
     @include('components.backsite.sidebar')
