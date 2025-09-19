@@ -13,8 +13,8 @@ class GuestBookControllerBE extends Controller
      */
     public function index()
     {
-        // $guestBooks = GuestBook::get()->paginate(10);
-        // return view('backsite.guest_books.index', compact('guestBooks'));
+        $guestBooks = GuestBook::latest()->paginate(10);
+        return view('pages.backsite.guest-book.index', compact('guestBooks'));
     }
 
     /**
@@ -30,7 +30,20 @@ class GuestBookControllerBE extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_lengkap' => 'required|string|max:255',
+            'jabatan' => 'required|string|max:255',
+            'instansi' => 'required|string|max:255',
+            'keperluan' => 'required|string|max:255',
+            'deskripsi_keperluan' => 'required|string',
+            'nomor_hp' => 'required|numeric|digits_between:10,15',
+            'pic' => 'required|string|max:255',
+            'kritik' => 'required|string',
+            'rating' => 'required|string',
+        ]);
+
+        GuestBook::create($validated);
+        return back()->with('success', 'Terima kasih atas kritik dan saran Anda.');
     }
 
     /**
@@ -60,8 +73,13 @@ class GuestBookControllerBE extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(GuestBook $guestBook)
     {
-        //
+        $guestBook->delete();
+        return back()->with('alert', [
+            'type' => 'success',
+            'title' => 'Berhasil',
+            'message' => 'Data berhasil dihapus.'
+        ]);
     }
 }

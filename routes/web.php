@@ -52,7 +52,6 @@ Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'
     Route::resource('madrasah-operational-permit', MadrasahOperationalPermitController::class);
     Route::resource('waqf-pledge-deed', WaqfPledgeDeedController::class);
 
-
     Route::resource('guest-books', GuestBookControllerBE::class);
 });
 

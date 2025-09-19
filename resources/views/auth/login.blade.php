@@ -22,8 +22,8 @@
 
         <div>
             <x-input-label for="email" value="Email" />
-            <x-text-input id="email" class="block w-full mt-1 p-2" type="email" name="email" :value="old('email')"
-                required autofocus autocomplete="username" placeholder="mail@email.com" />
+            <x-text-input id="email" class="block w-full mt-1 p-2 font-poppins" type="email" name="email"
+                :value="old('email')" required autofocus autocomplete="username" placeholder="mail@email.com" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -31,8 +31,8 @@
             <div class="flex items-center justify-between">
                 <x-input-label for="password" value="Password" />
             </div>
-            <x-text-input id="password" class="block w-full mt-1 p-2" type="password" name="password" required
-                autocomplete="current-password" placeholder="Masukkan password Anda" />
+            <x-text-input id="password" class="block w-full mt-1 p-2 font-poppins" type="password" name="password"
+                required autocomplete="current-password" placeholder="Masukkan password Anda" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 

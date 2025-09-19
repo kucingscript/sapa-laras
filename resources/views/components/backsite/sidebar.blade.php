@@ -15,7 +15,66 @@
             <nav class="hs-accordion-group p-3 w-full flex flex-col flex-wrap">
                 <ul class="flex flex-col space-y-1">
                     @foreach (config('menu.items') as $item)
-                        <x-backsite.sidebar-link :item="$item" />
+                        @if (isset($item['children']))
+                            @php
+                                $isSubMenuActive = false;
+                                foreach ($item['children'] as $child) {
+                                    $routeName = $child['route'];
+                                    $routeBase = substr($routeName, 0, strrpos($routeName, '.'));
+                                    $routePattern = $routeBase . '.*';
+                                    if (request()->routeIs($routePattern)) {
+                                        $isSubMenuActive = true;
+                                        break;
+                                    }
+                                }
+                            @endphp
+                            <li class="hs-accordion {{ $isSubMenuActive ? 'active' : '' }}"
+                                id="menu-{{ \Illuminate\Support\Str::slug($item['label']) }}">
+                                <button type="button"
+                                    class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
+                                    {!! $item['icon'] !!}
+                                    {{ $item['label'] }}
+                                    <svg class="hs-accordion-active:block ms-auto hidden size-4"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m18 15-6-6-6 6" />
+                                    </svg>
+
+                                    <svg class="hs-accordion-active:hidden ms-auto block size-4"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <div id="menu-{{ \Illuminate\Support\Str::slug($item['label']) }}-child"
+                                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 {{ $isSubMenuActive ? '' : 'hidden' }}">
+                                    <ul class="pt-2 ps-2">
+                                        @foreach ($item['children'] as $child)
+                                            @php
+                                                $routeName = $child['route'];
+                                                $routeBase = substr($routeName, 0, strrpos($routeName, '.'));
+                                                $routePattern = $routeBase . '.*';
+                                                $isActive = request()->routeIs($routePattern);
+                                            @endphp
+                                            <li>
+                                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg
+                                                {{ $isActive
+                                                    ? 'bg-secondary text-white shadow-lg'
+                                                    : 'text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700' }}"
+                                                    href="{{ route($child['route']) }}">
+                                                    {{ $child['label'] }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </li>
+                        @else
+                            <x-backsite.sidebar-link :item="$item" />
+                        @endif
                     @endforeach
 
                     <li class="py-2">

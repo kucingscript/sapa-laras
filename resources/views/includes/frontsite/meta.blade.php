@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <meta name="description"
     content="SAPA LARAS (Standar Panduan Layanan Ramah dan Sistematis) oleh Kementerian Agama Kabupaten Pacitan. Temukan panduan layanan publik yang ramah, sistematis, dan terintegrasi.">
 <meta name="keywords"
