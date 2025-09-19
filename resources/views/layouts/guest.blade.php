@@ -19,7 +19,7 @@
         </div>
 
         <div class="hidden lg:flex flex-1 relative items-center justify-center">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-800 opacity-90"></div>
+            <div class="absolute inset-0 bg-secondary/90"></div>
             <img class="relative z-10 w-3/4 h-auto max-w-sm" src="{{ asset('images/logo.webp') }}" alt="Illustrasi">
             <div class="absolute bottom-8 z-10 text-center text-white px-8">
                 <h1 class="text-3xl font-bold">SAPA LARAS</h1>

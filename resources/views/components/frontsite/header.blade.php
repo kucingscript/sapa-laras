@@ -37,6 +37,8 @@
                 <a class="font-medium text-secondary hover:text-black sm:py-6" href="/#home">Home</a>
                 <a class="font-medium text-secondary hover:text-black sm:py-6" href="/#service">Layanan</a>
                 <a class="font-medium text-secondary hover:text-black sm:py-6" href="/#contact">Kontak</a>
+                <a class="font-medium text-secondary hover:text-black sm:py-6"
+                    href={{ route('guest_books.index') }}>Buku Tamu</a>
 
                 @auth
                     <a class="flex items-center gap-x-2 font-medium text-white bg-secondary hover:bg-secondaryhvr transition-colors px-4 py-2 rounded-lg"

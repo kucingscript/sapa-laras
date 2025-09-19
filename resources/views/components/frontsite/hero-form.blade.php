@@ -70,11 +70,8 @@
     services: {{ json_encode($services) }},
     redirectToService() {
         if (this.selected) {
-            // Mengarahkan ke URL berdasarkan nilai yang dipilih
-            // Contoh: /service/mosque-permit/1
             window.location.href = `/service/${this.selected}`;
         } else {
-            // Memberi peringatan jika belum ada layanan yang dipilih
             alert('Silakan pilih layanan terlebih dahulu untuk melanjutkan.');
         }
     }
@@ -119,7 +116,7 @@
                                     </svg>
                                 </span>
                             </div>
-                            <p class="mt-1 text-xs text-neutral-500" x-text="service.description"></p>
+                            <p class="mt-1 text-sm text-neutral-500" x-text="service.description"></p>
                         </div>
                     </div>
                 </template>

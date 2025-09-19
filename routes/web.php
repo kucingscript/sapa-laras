@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\GuestBookControllerBE;
 use App\Http\Controllers\Backsite\HajjCancellationController;
 use App\Http\Controllers\Backsite\HajjDelegationController;
 use App\Http\Controllers\Backsite\HajjRegularRegistrationController;
@@ -14,11 +15,13 @@ use App\Http\Controllers\Backsite\MosquePermitController;
 use App\Http\Controllers\Backsite\PesantrenOperationalPermitController;
 use App\Http\Controllers\Backsite\SantriStudyAbroadController;
 use App\Http\Controllers\Backsite\WaqfPledgeDeedController;
+use App\Http\Controllers\Frontsite\GuestBookController;
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource("/", LandingController::class);
+Route::get('guest-books', [GuestBookController::class, 'index'])->name('guest_books.index');
 Route::name('service.')->group(function () {
     Route::get('service/mosque-permit/{mosque_permit}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
     Route::get('service/majlis-taklim/{majlis_taklim}', [ServiceController::class, 'showMajlisTaklim'])->name('majlis_taklim');
@@ -48,6 +51,9 @@ Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'
     Route::resource('lpq-registration', LpqRegistrationController::class);
     Route::resource('madrasah-operational-permit', MadrasahOperationalPermitController::class);
     Route::resource('waqf-pledge-deed', WaqfPledgeDeedController::class);
+
+
+    Route::resource('guest-books', GuestBookControllerBE::class);
 });
 
 // Route::middleware('auth')->group(function () {

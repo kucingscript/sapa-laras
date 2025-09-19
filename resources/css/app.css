@@ -18,6 +18,9 @@
     --color-primary: #f4f5f0;
     --color-secondary: #166534;
     --color-secondaryhvr: #14532d;
+
+    --font-sans: "Montserrat", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

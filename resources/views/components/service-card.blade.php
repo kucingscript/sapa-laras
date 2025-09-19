@@ -3,7 +3,7 @@
 <a {{ $attributes->merge(['class' => 'group block bg-white shadow-lg rounded-xl overflow-hidden transition-transform transform hover:-translate-y-1']) }}
     href="{{ $url }}">
 
-    <div class="flex items-center justify-center h-48 bg-secondary/10">
+    <div class="flex items-center justify-center h-48 bg-secondary/15">
         <img class="h-24 w-24" src="{{ $image }}" alt="{{ $title }}">
     </div>
 

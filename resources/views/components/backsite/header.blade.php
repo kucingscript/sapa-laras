@@ -1,4 +1,3 @@
- <!-- ========== HEADER ========== -->
  <header
      class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-48 w-full bg-white border-b border-gray-200 text-sm py-2.5 lg:ps-65 dark:bg-neutral-800 dark:border-neutral-700">
      <nav class="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
@@ -68,7 +67,6 @@
                      Light
                  </button>
 
-                 <!-- Dropdown -->
                  <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
                      <button id="hs-dropdown-account" type="button"
                          class="size-9.5 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white"
@@ -117,7 +115,6 @@
                          </div>
                      </div>
                  </div>
-                 <!-- End Dropdown -->
              </div>
          </div>
      </nav>

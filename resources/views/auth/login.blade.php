@@ -46,7 +46,7 @@
         </div>
 
         <div class="pt-2">
-            <x-primary-button class="w-full justify-center text-base py-3">
+            <x-primary-button class="w-full justify-center text-base py-3 bg-secondary hover:bg-secondaryhvr">
                 Login
             </x-primary-button>
         </div>
