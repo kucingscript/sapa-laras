@@ -5,13 +5,9 @@
     @include('includes.backsite.meta')
     <title>@yield('title') | {{ config('app.name') }}</title>
 
-    <!-- Style -->
     @stack('style')
-
-    <!-- Fonts -->
     @include('includes.backsite.font')
 
-    <!-- Scripts -->
     @include('includes.backsite.head-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
