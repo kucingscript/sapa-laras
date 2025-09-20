@@ -20,6 +20,18 @@
                 </div>
 
                 <div class="p-6 sm:p-10">
+
+                    @if ($errors->any())
+                        <div class="mb-8 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg" role="alert">
+                            <h3 class="font-bold text-lg mb-2">Oops! Ada beberapa kesalahan:</h3>
+                            <ul class="list-disc list-inside space-y-1">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action={{ route('backsite.guest-books.store') }} method="POST" class="space-y-6">
                         @csrf
 
@@ -177,9 +189,9 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 flex justify-end gap-2">
+                        <div class="mt-10 flex justify-end gap-3">
                             <a href="{{ url('/') }}"
-                                class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg shadow-sm bg-secondary text-white hover:bg-secondaryhvr hover:bg-transition-all">
+                                class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all">
                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +201,7 @@
                             </a>
                             <button type="submit"
                                 class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-secondary text-white hover:bg-secondaryhvr transition-all">
-                                Kirim
+                                Kirim Survei
                             </button>
                         </div>
                     </form>

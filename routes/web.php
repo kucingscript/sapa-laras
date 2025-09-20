@@ -14,14 +14,18 @@ use App\Http\Controllers\Backsite\MajlisTaklimCertificateController;
 use App\Http\Controllers\Backsite\MosquePermitController;
 use App\Http\Controllers\Backsite\PesantrenOperationalPermitController;
 use App\Http\Controllers\Backsite\SantriStudyAbroadController;
+use App\Http\Controllers\Backsite\SurveyControllerBE;
 use App\Http\Controllers\Backsite\WaqfPledgeDeedController;
 use App\Http\Controllers\Frontsite\GuestBookController;
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\ServiceController;
+use App\Http\Controllers\Frontsite\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource("/", LandingController::class);
 Route::get('guest-books', [GuestBookController::class, 'index'])->name('guest_books.index');
+Route::get('surveys', [SurveyController::class, 'index'])->name('surveys.index');
+
 Route::name('service.')->group(function () {
     Route::get('service/mosque-permit/{mosque_permit}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
     Route::get('service/majlis-taklim/{majlis_taklim}', [ServiceController::class, 'showMajlisTaklim'])->name('majlis_taklim');
@@ -53,12 +57,13 @@ Route::prefix('secure-admin')->name('backsite.')->middleware(['auth', 'verified'
     Route::resource('waqf-pledge-deed', WaqfPledgeDeedController::class);
 
     Route::resource('guest-books', GuestBookControllerBE::class);
+    Route::resource('surveys', SurveyControllerBE::class);
 });
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 require __DIR__ . '/auth.php';
