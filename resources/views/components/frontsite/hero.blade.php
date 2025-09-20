@@ -7,7 +7,7 @@
         class="hidden lg:block absolute top-0 start-0 -z-10 size-44 bg-yellow-300 rounded-full blur-3xl opacity-30">
     </div>
 
-    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 lg:py-16">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:gap-12 items-center">
             <div class="lg:col-span-3 relative z-10 order-2 lg:order-1 text-left">
 
@@ -38,7 +38,7 @@
 
             <div class="lg:col-span-2 relative flex justify-center items-center lg:justify-end order-1 lg:order-2">
                 <div
-                    class="relative p-2.5 bg-gradient-to-br from-primary to-secondary-light rounded-3xl shadow-2xl transform hover:scale-102 transition-transform duration-500 ease-in-out">
+                    class="relative p-2.5 bg-gradient-to-br from-primary to-secondary-light rounded-3xl shadow-xl transform hover:scale-102 transition-transform duration-500 ease-in-out">
                     <img class="w-full h-[380px] sm:h-[520px] object-cover rounded-2xl border-4 border-white"
                         src="{{ asset('images/ptsp.webp') }}" alt="Petugas PTSP Kemenag Pacitan">
 

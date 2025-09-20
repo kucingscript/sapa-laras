@@ -201,7 +201,7 @@
                             </a>
                             <button type="submit"
                                 class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-secondary text-white hover:bg-secondaryhvr transition-all">
-                                Kirim Survei
+                                Kirim
                             </button>
                         </div>
                     </form>
