@@ -32,7 +32,7 @@
                         </div>
                     @endif
 
-                    <form action={{ route('backsite.guest-books.store') }} method="POST" class="space-y-6">
+                    <form action={{ route('guest_books.store') }} method="POST" class="space-y-6">
                         @csrf
 
                         <div>
@@ -40,7 +40,7 @@
                                 Nama Lengkap <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="nama_lengkap" id="nama_lengkap"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Masukkan nama lengkap Anda" required>
                         </div>
 
@@ -49,7 +49,7 @@
                                 Jabatan/Pekerjaan <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="jabatan" id="jabatan"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Contoh: Pegawai Swasta, Pelajar, dll" required>
                         </div>
 
@@ -58,7 +58,7 @@
                                 Unit Kerja/Instansi/Lembaga/Individu <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="instansi" id="instansi"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Nama perusahaan, sekolah, atau organisasi Anda" required>
                         </div>
 
@@ -134,7 +134,7 @@
                                 Deskripsi Keperluan <span class="text-red-500">*</span>
                             </label>
                             <textarea id="deskripsi_keperluan" name="deskripsi_keperluan" rows="4"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Jelaskan secara singkat keperluan Anda" required></textarea>
                         </div>
 
@@ -143,7 +143,7 @@
                                 Nomor HP (WhatsApp) <span class="text-red-500">*</span>
                             </label>
                             <input type="number" name="nomor_hp" id="nomor_hp"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Contoh: 081234567890" required>
                         </div>
 
@@ -152,7 +152,7 @@
                                 dituju (Contoh: Bu Anjar) <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="pic" id="pic"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Sebutkan nama petugas jika ada">
                         </div>
 
@@ -161,7 +161,7 @@
                                 Saran untuk Buku Tamu Digital <span class="text-red-500">*</span>
                             </label>
                             <textarea id="kritik" name="kritik" rows="4"
-                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                 placeholder="Masukan Anda sangat berarti bagi kami"></textarea>
                         </div>
 

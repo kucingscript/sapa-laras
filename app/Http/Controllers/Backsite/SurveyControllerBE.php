@@ -30,33 +30,7 @@ class SurveyControllerBE extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'jenis_layanan' => 'required|string|max:255',
-            'nama_responden' => 'required|string|max:255',
-            'usia' => 'required|numeric|min:1',
-            'alamat' => 'required|string',
-            'nomor_hp' => 'required|numeric|digits_between:10,15',
-            'pekerjaan' => 'required|string|max:255',
-            'nama_petugas' => 'required|string|max:255',
-            'penilaian_1' => 'required|numeric|min:1|max:5',
-            'penilaian_2' => 'required|numeric|min:1|max:5',
-            'penilaian_3' => 'required|numeric|min:1|max:5',
-            'penilaian_4' => 'required|numeric|min:1|max:5',
-            'penilaian_5' => 'required|numeric|min:1|max:5',
-            'penilaian_6' => 'required|numeric|min:1|max:5',
-            'penilaian_7' => 'required|numeric|min:1|max:5',
-            'penilaian_8' => 'required|numeric|min:1|max:5',
-            'penilaian_9' => 'required|numeric|min:1|max:5',
-            'penilaian_10' => 'required|numeric|min:1|max:5',
-            'penilaian_11' => 'required|numeric|min:1|max:5',
-            'penilaian_12' => 'required|numeric|min:1|max:5',
-            'penilaian_13' => 'required|numeric|min:1|max:5',
-            'penilaian_14' => 'required|numeric|min:1|max:5',
-            'penilaian_15' => 'required|numeric|min:1|max:5',
-        ]);
-
-        Survey::create($validated);
-        return back()->with('success', 'Terima kasih atas penilaian Anda.');
+        //
     }
 
     /**

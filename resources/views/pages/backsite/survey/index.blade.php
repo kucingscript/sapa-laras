@@ -31,9 +31,6 @@
                                                 Nama Responden</th>
                                             <th scope="col"
                                                 class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400">
-                                                Jenis Layanan</th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400">
                                                 Petugas</th>
                                             <th scope="col"
                                                 class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase dark:text-neutral-400">
@@ -55,9 +52,6 @@
                                                 <td
                                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                                     {{ $item->nama_responden }}</td>
-                                                <td
-                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                                    {{ $item->jenis_layanan }}</td>
                                                 <td
                                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                                     {{ $item->nama_petugas }}</td>

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('surveys', function (Blueprint $table) {
             $table->id();
 
-            $table->string('jenis_layanan');
             $table->string('nama_responden');
             $table->tinyInteger('usia');
             $table->text('alamat');

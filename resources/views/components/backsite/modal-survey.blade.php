@@ -43,8 +43,6 @@
                     <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->usia }} Tahun</div>
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Nomor HP</div>
                     <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->nomor_hp }}</div>
-                    <div class="font-semibold text-gray-500 dark:text-neutral-400">Jenis Layanan</div>
-                    <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->jenis_layanan }}</div>
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Nama Petugas</div>
                     <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->nama_petugas }}</div>
                 </div>

@@ -32,7 +32,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('backsite.surveys.store') }}" method="POST" class="space-y-8">
+                    <form action="{{ route('surveys.store') }}" method="POST" class="space-y-8">
                         @csrf
 
                         <div class="space-y-6">
@@ -45,7 +45,7 @@
                                         Nama Responden <span class="text-red-500">*</span>
                                     </label>
                                     <input type="text" name="nama_responden" id="nama_responden"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                         placeholder="Masukkan nama lengkap Anda" required>
                                 </div>
                                 <div>
@@ -53,7 +53,7 @@
                                         Pekerjaan <span class="text-red-500">*</span>
                                     </label>
                                     <input type="text" name="pekerjaan" id="pekerjaan"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                         placeholder="Contoh: Pegawai Swasta, Pelajar" required>
                                 </div>
                                 <div>
@@ -61,7 +61,7 @@
                                         Usia <span class="text-red-500">*</span>
                                     </label>
                                     <input type="number" name="usia" id="usia"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                         placeholder="Masukkan usia Anda" required min="1">
                                 </div>
                                 <div>
@@ -69,71 +69,10 @@
                                         Nomor HP (WhatsApp) <span class="text-red-500">*</span>
                                     </label>
                                     <input type="number" name="nomor_hp" id="nomor_hp"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                         placeholder="Contoh: 081234567890" required>
                                 </div>
 
-                                <div x-data="{
-                                    open: false,
-                                    selected: '',
-                                    selectedTitle: 'Pilih jenis layanan...',
-                                    options: [
-                                        { value: 'Sertifikat Masjid / Musholla', title: 'Sertifikat Masjid / Musholla' },
-                                        { value: 'Sertifikat Majelis Taklim', title: 'Sertifikat Majelis Taklim' },
-                                        { value: 'Lembaga Kesenian Islam', title: 'Lembaga Kesenian Islam' },
-                                        { value: 'Pendaftaran Haji Reguler', title: 'Pendaftaran Haji Reguler' },
-                                        { value: 'Pembatalan Haji Reguler', title: 'Pembatalan Haji Reguler' },
-                                        { value: 'Pelimpahan Jamaah Haji', title: 'Pelimpahan Jamaah Haji' },
-                                        { value: 'Santri ke Luar Negeri', title: 'Santri ke Luar Negeri' },
-                                        { value: 'Izin Operasional Pesantren', title: 'Izin Operasional Pesantren' },
-                                        { value: 'Izin Operasional Madin', title: 'Izin Operasional Madin' },
-                                        { value: 'Tanda Daftar LPQ / TPQ', title: 'Tanda Daftar LPQ / TPQ' },
-                                        { value: 'Izin Operasional Madrasah', title: 'Izin Operasional Madrasah' },
-                                        { value: 'Pembuatan Akta Wakaf', title: 'Pembuatan Akta Wakaf' },
-                                        { value: 'Lainnya', title: 'Lainnya' }
-                                    ]
-                                }" class="relative">
-                                    <label for="jenis_layanan" class="block text-sm font-medium text-gray-800 mb-2">
-                                        Jenis Layanan <span class="text-red-500">*</span>
-                                    </label>
-                                    <input type="hidden" name="jenis_layanan" x-model="selected">
-                                    <button type="button" @click="open = !open"
-                                        class="relative w-full cursor-default rounded-lg bg-white py-3 pl-4 pr-10 text-left border border-gray-200 focus:outline-none focus-visible:border-secondary focus-visible:ring-2 sm:text-sm">
-                                        <span class="block truncate" x-text="selectedTitle"></span>
-                                        <span
-                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"><svg
-                                                class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M10 3a.75.75 0 01.53.22l3.5 3.5a.75.75 0 01-1.06 1.06L10 4.81 7.03 7.78a.75.75 0 01-1.06-1.06l3.5-3.5A.75.75 0 0110 3zm-3.72 9.53a.75.75 0 011.06 0L10 15.19l2.97-2.97a.75.75 0 111.06 1.06l-3.5 3.5a.75.75 0 01-1.06 0l-3.5-3.5a.75.75 0 010-1.06z"
-                                                    clip-rule="evenodd" />
-                                            </svg></span>
-                                    </button>
-                                    <div x-show="open" @click.away="open = false" x-transition
-                                        class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm"
-                                        style="display: none;">
-                                        <template x-for="option in options" :key="option.value">
-                                            <div @click="selected = option.value; selectedTitle = option.title; open = false"
-                                                class="relative cursor-pointer select-none py-2 pl-10 pr-4 text-gray-900 hover:bg-gray-100">
-                                                <span class="block truncate"
-                                                    :class="{
-                                                        'font-medium': selected === option
-                                                            .value,
-                                                        'font-normal': selected !== option.value
-                                                    }"
-                                                    x-text="option.title"></span>
-                                                <span x-show="selected === option.value"
-                                                    class="absolute inset-y-0 left-0 flex items-center pl-3 text-secondary"><svg
-                                                        class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z"
-                                                            clip-rule="evenodd" />
-                                                    </svg></span>
-                                            </div>
-                                        </template>
-                                    </div>
-                                </div>
                                 <div x-data="{
                                     open: false,
                                     selected: '',
@@ -145,7 +84,7 @@
                                         { value: 'Dewi Anggraini', title: 'Dewi Anggraini' },
                                         { value: 'Tidak Tahu', title: 'Tidak Tahu / Lupa' }
                                     ]
-                                }" class="relative">
+                                }" class="relative md:col-span-2">
                                     <label for="nama_petugas" class="block text-sm font-medium text-gray-800 mb-2">
                                         Nama Petugas yang Melayani <span class="text-red-500">*</span>
                                     </label>
@@ -193,7 +132,7 @@
                                         Alamat <span class="text-red-500">*</span>
                                     </label>
                                     <textarea id="alamat" name="alamat" rows="3"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
+                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
                                         placeholder="Masukkan alamat lengkap Anda" required></textarea>
                                 </div>
                             </div>

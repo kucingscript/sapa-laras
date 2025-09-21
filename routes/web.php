@@ -24,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource("/", LandingController::class);
 Route::get('guest-books', [GuestBookController::class, 'index'])->name('guest_books.index');
+Route::post('guest-books', [GuestBookController::class, 'store'])->name('guest_books.store');
 Route::get('surveys', [SurveyController::class, 'index'])->name('surveys.index');
+Route::post('surveys', [SurveyController::class, 'store'])->name('surveys.store');
 
 Route::name('service.')->group(function () {
     Route::get('service/mosque-permit/{mosque_permit}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');
