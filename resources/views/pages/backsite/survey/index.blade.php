@@ -59,7 +59,7 @@
                                                     class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-800 dark:text-neutral-200">
                                                     @php
                                                         $totalScore = 0;
-                                                        $questionCount = 15;
+                                                        $questionCount = 20;
                                                         for ($i = 1; $i <= $questionCount; $i++) {
                                                             $totalScore += $item->{'penilaian_' . $i};
                                                         }

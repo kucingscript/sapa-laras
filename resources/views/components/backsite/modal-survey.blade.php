@@ -34,17 +34,19 @@
             </div>
 
             <div class="p-6 overflow-y-auto space-y-6 max-h-[90vh]">
-                <div class="grid grid-cols-2 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Nama Responden</div>
-                    <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->nama_responden }}</div>
+                    <div class="text-gray-800 dark:text-neutral-200">{{ $survey->nama_responden }}</div>
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Pekerjaan</div>
-                    <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->pekerjaan }}</div>
+                    <div class="text-gray-800 dark:text-neutral-200">{{ $survey->pekerjaan }}</div>
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Usia</div>
-                    <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->usia }} Tahun</div>
+                    <div class="text-gray-800 dark:text-neutral-200">{{ $survey->usia }} Tahun</div>
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Nomor HP</div>
-                    <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->nomor_hp }}</div>
+                    <div class="text-gray-800 dark:text-neutral-200">{{ $survey->nomor_hp }}</div>
                     <div class="font-semibold text-gray-500 dark:text-neutral-400">Nama Petugas</div>
-                    <div class="text-gray-800 dark:text-neutral-200">: {{ $survey->nama_petugas }}</div>
+                    <div class="text-gray-800 dark:text-neutral-200">{{ $survey->nama_petugas }}</div>
+                    <div class="font-semibold text-gray-500 dark:text-neutral-400 sm:col-span-2">Alamat</div>
+                    <div class="text-gray-800 dark:text-neutral-200 sm:col-span-2">{{ $survey->alamat }}</div>
                 </div>
 
                 <hr class="dark:border-neutral-700">
@@ -83,19 +85,27 @@
                                     14 => 'Kenyamanan dan kebersihan ruang',
                                     15 => 'Kelengkapan fasilitas pendukung',
                                 ],
+                                'H. INTEGRITAS PELAYANAN' => [
+                                    16 => 'Tidak ada diskriminasi pelayanan',
+                                    17 => 'Tidak ada pelayanan di luar prosedur',
+                                    18 => 'Tidak ada penerimaan imbalan',
+                                    19 => 'Tidak ada pungutan liar',
+                                    20 => 'Tidak ada percaloan/perantara tidak resmi',
+                                ],
                             ];
                         @endphp
 
                         @foreach ($questions as $category => $list)
                             <div class="mt-4">
-                                <p class="font-semibold text-gray-600 dark:text-neutral-300">{{ $category }}</p>
+                                <p class="font-semibold text-gray-600 dark:text-neutral-300">{{ $category }}
+                                </p>
                                 @foreach ($list as $num => $q)
                                     <div
                                         class="flex justify-between items-center gap-4 py-2 border-b border-gray-200/80 dark:border-neutral-700/60">
                                         <p class="text-gray-600 dark:text-neutral-400">{{ $num }}.
                                             {{ $q }}</p>
                                         <div class="flex items-center space-x-1">
-                                            {{ render_stars($survey->{'penilaian_' . $num}) }}
+                                            @php render_stars($survey->{'penilaian_' . $num}); @endphp
                                         </div>
                                     </div>
                                 @endforeach
@@ -103,6 +113,17 @@
                         @endforeach
                     </div>
                 </div>
+
+                <hr class="dark:border-neutral-700">
+
+                <div>
+                    <h4 class="text-base font-bold text-gray-800 dark:text-white mb-2">Kritik dan Saran</h4>
+                    <p
+                        class="text-sm text-gray-600 dark:text-neutral-300 bg-gray-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+                        {{ $survey->kritik }}
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
