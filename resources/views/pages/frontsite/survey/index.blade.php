@@ -136,11 +136,11 @@
                                     selected: '{{ old('nama_petugas') }}',
                                     selectedTitle: '{{ old('nama_petugas') ? old('nama_petugas') : 'Pilih nama petugas...' }}',
                                     options: [
-                                        { value: 'Andi Saputra', title: 'Andi Saputra' },
-                                        { value: 'Budi Santoso', title: 'Budi Santoso' },
-                                        { value: 'Citra Lestari', title: 'Citra Lestari' },
-                                        { value: 'Dewi Anggraini', title: 'Dewi Anggraini' },
-                                        { value: 'Tidak Tahu', title: 'Tidak Tahu / Lupa' }
+                                        { value: 'Muhammad Zainudin, S.Pd.I', title: 'Muhammad Zainudin, S.Pd.I' },
+                                        { value: 'M. Azka Dhifa Safaraz', title: 'M. Azka Dhifa Safaraz' },
+                                        { value: 'M. Ilham Ramadhan', title: 'M. Ilham Ramadhan' },
+                                        { value: 'Defanda Wahyu Bramadika', title: 'Defanda Wahyu Bramadika' },
+                                        { value: 'Arifin', title: 'Arifin' }
                                     ]
                                 }" class="relative md:col-span-2">
                                     <label for="nama_petugas" class="block text-sm font-medium text-gray-800 mb-2">
@@ -319,8 +319,8 @@
                             </h2>
                             <div>
                                 <label for="kritik" class="block text-sm font-medium text-gray-800 mb-2">
-                                    Mohon menyampaikan kritik dan saran untuk perbaikan pelayanan pada Kantor. <span
-                                        class="text-red-500">*</span>
+                                    Mohon menyampaikan kritik dan saran untuk perbaikan pelayanan pada Kantor Kementerian
+                                    Agama Kabupaten Pacitan. <span class="text-red-500">*</span>
                                 </label>
                                 <textarea id="kritik" name="kritik" rows="5"
                                     class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-secondary focus:ring-secondary focus:ring-2 focus:outline-none"
