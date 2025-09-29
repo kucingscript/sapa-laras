@@ -37,6 +37,12 @@ class SurveyController extends Controller
             'penilaian_13' => 'required|numeric|min:1|max:5',
             'penilaian_14' => 'required|numeric|min:1|max:5',
             'penilaian_15' => 'required|numeric|min:1|max:5',
+            'penilaian_16' => 'required|numeric|min:1|max:5',
+            'penilaian_17' => 'required|numeric|min:1|max:5',
+            'penilaian_18' => 'required|numeric|min:1|max:5',
+            'penilaian_19' => 'required|numeric|min:1|max:5',
+            'penilaian_20' => 'required|numeric|min:1|max:5',
+            'kritik' => 'required|string',
         ]);
 
         Survey::create($validated);

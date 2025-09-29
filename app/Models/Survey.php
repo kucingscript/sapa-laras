@@ -28,5 +28,11 @@ class Survey extends Model
         'penilaian_13',
         'penilaian_14',
         'penilaian_15',
+        'penilaian_16',
+        'penilaian_17',
+        'penilaian_18',
+        'penilaian_19',
+        'penilaian_20',
+        'kritik',
     ];
 }

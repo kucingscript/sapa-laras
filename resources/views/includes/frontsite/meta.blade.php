@@ -16,7 +16,7 @@
 <meta property="og:title" content="@yield('title', 'SAPA LARAS - Kemenag Pacitan')">
 <meta property="og:description"
     content="Standar Panduan Layanan Ramah dan Sistematis oleh Kementerian Agama Kabupaten Pacitan.">
-<meta property="og:image" content="{{ asset('images/hero.webp') }}">
+<meta property="og:image" content="{{ asset('images/logo.webp') }}">
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="website">
 
@@ -24,4 +24,4 @@
 <meta name="twitter:title" content="@yield('title', 'SAPA LARAS - Kemenag Pacitan')">
 <meta name="twitter:description"
     content="Standar Panduan Layanan Ramah dan Sistematis oleh Kementerian Agama Kabupaten Pacitan.">
-<meta name="twitter:image" content="{{ asset('images/hero.webp') }}">
+<meta name="twitter:image" content="{{ asset('images/logo.webp') }}">

@@ -50,6 +50,15 @@ return new class extends Migration
             $table->tinyInteger('penilaian_14')->comment('Kenyamanan ruang tunggu dan kebersihan area pelayanan');
             $table->tinyInteger('penilaian_15')->comment('Kelengkapan fasilitas pendukung (misal : toilet, kursi, papan informasi)');
 
+            // INTEGRITAS PELAYANAN
+            $table->tinyInteger('penilaian_16')->comment('Tidak ada diskriminasi pelayanan');
+            $table->tinyInteger('penilaian_17')->comment('Tidak ada pelayanan di luar prosedur/kecurangan layanan');
+            $table->tinyInteger('penilaian_18')->comment('Tidak ada penerimaan imbalan/uang/barang/fasilitas di luar ketentuan yang berlaku');
+            $table->tinyInteger('penilaian_19')->comment('Tidak ada pungutan liar');
+            $table->tinyInteger('penilaian_20')->comment('Tidak ada percaloan/perantara tidak resmi');
+
+            $table->text('kritik')->nullable();
+
             $table->timestamps();
         });
     }
