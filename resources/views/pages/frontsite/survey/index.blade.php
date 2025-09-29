@@ -197,7 +197,7 @@
 
                         <div x-show="currentStep === 3" data-step="3" class="space-y-8">
                             <h2 class="text-xl font-bold text-gray-900 border-b-2 border-secondary/20 pb-3">
-                                II. Penilaian Terhadap Unit Layanan
+                                II. Survey Persepsi Kepuasan Pelayanan
                             </h2>
                             <p class="text-sm text-gray-500 -mt-4">
                                 Keterangan Penilaian: <span class="font-semibold text-gray-600">1 Bintang (Tidak
@@ -295,7 +295,7 @@
 
                         <div x-show="currentStep === 4" data-step="4" class="space-y-8">
                             <h2 class="text-xl font-bold text-gray-900 border-b-2 border-secondary/20 pb-3">
-                                III. Integritas Pelayanan
+                                III. Survey Persepsi Anti Korupsi
                             </h2>
                             <p class="text-sm text-gray-500 -mt-4">
                                 Keterangan Penilaian: <span class="font-semibold text-gray-600">1 Bintang (Tidak
