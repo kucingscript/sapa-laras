@@ -27,6 +27,7 @@ Route::get('guest-books', [GuestBookController::class, 'index'])->name('guest_bo
 Route::post('guest-books', [GuestBookController::class, 'store'])->name('guest_books.store');
 Route::get('surveys', [SurveyController::class, 'index'])->name('surveys.index');
 Route::post('surveys', [SurveyController::class, 'store'])->name('surveys.store');
+Route::get('surveys/result', [SurveyController::class, 'result'])->name('surveys.result');
 
 Route::name('service.')->group(function () {
     Route::get('service/mosque-permit/{mosque_permit}', [ServiceController::class, 'showMosquePermit'])->name('mosque_permit');

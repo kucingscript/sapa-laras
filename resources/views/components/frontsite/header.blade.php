@@ -41,6 +41,9 @@
                     href={{ route('guest_books.index') }}>Buku Tamu</a>
                 <a class="font-medium text-secondary hover:text-black sm:py-6" href={{ route('surveys.index') }}>Survey
                     Kepuasan</a>
+                <a href="{{ route('surveys.result') }}"
+                    class="font-medium {{ request()->routeIs('surveys.result') ? 'text-black' : 'text-secondary hover:text-black transition-all duration-300' }}">Hasil
+                    Survei</a>
 
                 @auth
                     <a class="flex items-center gap-x-2 font-medium text-white bg-secondary hover:bg-secondaryhvr transition-colors px-4 py-2 rounded-lg"

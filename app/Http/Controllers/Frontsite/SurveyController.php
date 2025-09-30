@@ -48,4 +48,26 @@ class SurveyController extends Controller
         Survey::create($validated);
         return back()->with('success', 'Terima kasih atas penilaian Anda.');
     }
+
+    public function result()
+    {
+        $surveys = Survey::latest()->get();
+        $totalRespondents = $surveys->count();
+        $overallAverage = 0;
+        $totalScoreSum = 0;
+        $questionCount = 20;
+
+        if ($totalRespondents > 0) {
+            foreach ($surveys as $survey) {
+                $individualTotal = 0;
+                for ($i = 1; $i <= $questionCount; $i++) {
+                    $individualTotal += $survey->{'penilaian_' . $i};
+                }
+                $totalScoreSum += $individualTotal;
+            }
+            $overallAverage = $totalScoreSum / ($totalRespondents * $questionCount);
+        }
+
+        return view('pages.frontsite.survey.result', compact('surveys', 'totalRespondents', 'overallAverage'));
+    }
 }
